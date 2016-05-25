@@ -9,6 +9,21 @@ function AppSchema(mongoose){
 		createdOn: {type: Date, default: Date.now}
 	});
 	
+	this.perfilSchema = new Schema({
+		iduser: String,
+		nome: String,
+		especialidade: String,
+		ranking: String,
+		projConcluido: String,
+		dataRegistro: Date,
+		resumoProfissional: String,
+		perfil: String,
+		habilidades: String,
+		areaInteresse: String,
+		
+	});//FALTA O CAMPO FOTO
+	
+	
 	this.projetoSchema = new Schema({
 		idcadastro: String,
 		nomeproj: String,
@@ -23,10 +38,20 @@ function AppSchema(mongoose){
 		proposta: String,
 		createdOn: {type: Date, default: Date.now}
 	});
+	
 	this.inscricaoSchema = new Schema({
 		idproj: String,
 		idcadastro: String,
 		status: Boolean,
+		createdOn: {type: Date, default: Date.now}
+	});
+	
+	this.avaliacaoSchema = new Schema({
+		idProj: String,
+		idPerfil: String,
+		nota: String,
+		descricao: String,
+		replica: String,
 		createdOn: {type: Date, default: Date.now}
 	});
 }

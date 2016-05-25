@@ -11,55 +11,51 @@ var options = {
 }
 mongoose.connect('mongodb://localhost/LancerJobs', options);
 
-//Schemas IMPORT Everton
-//var ProjetoSchema = require('./schema/projetoShema.js').ProjetoSchema;
-//var projetoSchemaInstance = new ProjetoSchema(mongoose);
-// appSchema
-var AppSchema = require('./schema.js').AppSchema;
+
+var AppSchema = require('./schema/schema.js').AppSchema;
 var appSchemaInstance = new AppSchema(mongoose);
-//<<<<<<< HEAD
-var CadastroService = require('./cadastroService.js').CadastroService;
+
+
+//===SERVICES====
+
+var AvaliacaoService = require('./services/avaliacaoService.js').AvaliacaoService;
+var avaliacaoServiceInstance = new AvaliacaoService(mongoose, appSchemaInstance);
+
+var PerfilService = require('./services/perfilService.js').PerfilService;
+var perfilServiceInstance = new PerfilService(mongoose, appSchemaInstance);
+
+var CadastroService = require('./services/cadastroService.js').CadastroService;
 var cadastroServiceInstance = new CadastroService(mongoose, appSchemaInstance);
-//=======
 
-//Services IMPORT
-//var AvaliacaoService = require('./services/avaliacaoService.js').AvaliacaoService;
-//var avaliacaoServiceInstance = new AvaliacaoService(mongoose, appSchemaInstance);
-
-//var PerfilService = require('./services/perfilService.js').PerfilService;
-//var perfilServiceInstance = new PerfilService(mongoose, appSchemaInstance);
-//>>>>>>> branch 'master' of https://github.com/veveton/lancerjobs.git
-
-//<<<<<<< HEAD
-var ProjetoService = require('./projetoService.js').ProjetoService;
+var ProjetoService = require('./services/projetoService.js').ProjetoService;
 var projetoServiceInstance = new ProjetoService(mongoose, appSchemaInstance);
 
-var InscricaoService = require('./inscricaoService.js').InscricaoService;
+var InscricaoService = require('./services/inscricaoService.js').InscricaoService;
 var inscricaoServiceInstance = new InscricaoService(mongoose, appSchemaInstance);
+
+//===SERVICES====
+
+
+
+
+
+
 //----------------CadastroService---- Ini-----------
 
 //app.put('/editarCadastro', function (req, res) {
 //	cadastroServiceInstance.editarCadastro(req.body, function(response){
 		
 //=======
+
 //servicos
-app.post('/salvaAvaliacaor', function (req, res) {
-	avaliacaoServiceInstance.salvarAvaliacao(req.body, function(response){
-		res.send(response);
-	}, function(err){
-		res.send(err);
-	});
-});
-/*
-app.post('/salvaPerfil', function (req, res) {
-	perfilServiceInstance.salvarPerfil(req.body, function(response){
-//>>>>>>> branch 'master' of https://github.com/veveton/lancerjobs.git
-		res.send(response);
-	}, function(err){
-		res.send(err);
-	});
-});
-*/
+//-----------------------CadastroService------------INI----------------
+app.put('/editarCadastro', function (req, res) {
+	cadastroServiceInstance.editarCadastro(req.body, function(response){
+	})
+})
+	
+
+
 app.get("/listarCadastro", function(req,res){
 	
 	cadastroServiceInstance.listarCadastroService(req.body, function(response){
@@ -76,6 +72,51 @@ app.post('/addCadastro', function (req, res) {
 		res.send(err);
 	});
 });
+//-----------------------CadastroService------------FIM----------------
+
+//-----------------------AvaliacaoService------------INI---------------
+app.get("/listarAvaliacao", function(req,res){
+	
+	avaliacaoServiceInstance.listarAvaliacaoService(req.body, function(response){
+		res.send(response);
+	}, function(err){
+		res.send(err);
+	});
+});
+
+app.post('/salvaAvaliacao', function (req, res) {
+	avaliacaoServiceInstance.salvarAvaliacao(req.body, function(response){
+		res.send(response);
+	}, function(err){
+		res.send(err);
+	});
+});
+
+//-----------------------AvaliacaoService------------FIM--------------
+
+//-----------------------PerfilService------------INI-----------------
+
+app.post('/salvaPerfil', function (req, res) {
+	perfilServiceInstance.salvarPerfil(req.body, function(response){
+		res.send(response);
+	}, function(err){
+		res.send(err);
+	});
+});
+
+app.get("/listarPerfil", function(req,res){
+	
+	perfilServiceInstance.listarPerfilService(req.body, function(response){
+		res.send(response);
+	}, function(err){
+		res.send(err);
+	});
+});
+
+//-----------------------PerfilService------------FIM------------------
+
+
+
 
 
 
@@ -83,7 +124,7 @@ app.post('/addCadastro', function (req, res) {
 
 
 
-//----------------ProjetoService---- Ini-----------
+//----------------ProjetoService----INI-----------
 app.delete('/removerProjeto/:id', function (req, res) {
 	
 	projetoServiceInstance.removerProjetoService(req.params.id, function(response){
@@ -110,8 +151,9 @@ app.post('/addProjeto', function (req, res) {
 	});
 });
 
-//----------------ProjetoService---- fim-----------
-//----------------inscricaoService---- Ini-----------
+//----------------ProjetoService---- FIM-----------
+
+//----------------InscricaoService----INI-------------------
 
 
 app.get("/listarInscricao", function(req,res){
@@ -132,7 +174,7 @@ app.post('/addInscricao', function (req, res) {
 });
 
 
-//----------------inscricaoService---- fim-----------
+//----------------InscricaoService----FIM-----------
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
 });
