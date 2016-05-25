@@ -10,6 +10,14 @@ function ProjetoService(mongoose, appSchema){
 			else successCallback(data);
 		});	
 	}
+	this.listarProjetoService = function(successCallback, errorCallback){		
+		Projeto.find({}, function (err, data) {
+			if (err) errorCallback(err);
+			
+			else successCallback(data);
+
+		});	
+	}
 }
 
 module.exports.ProjetoService = ProjetoService;

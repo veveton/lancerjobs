@@ -10,6 +10,24 @@ function PerfilService(mongoose, appSchema){
 			else successCallback(data);
 		});	
 	}
+	
+	this.listarPerfilService = function(successCallback, errorCallback){		
+		Perfil.find({}, function (err, data) {
+			if (err) errorCallback(err);
+			
+			else successCallback(data);
+
+		});	
+	}
+	
+	this.editarPerfilService = function(successCallback, errorCallback){		
+		Perfil.find({}, function (err, data) {
+			if (err) errorCallback(err);
+			
+			else successCallback(data);
+
+		});	
+	}
 }
 
 module.exports.PerfilService = PerfilService;
