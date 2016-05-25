@@ -16,6 +16,41 @@ function ProjetoSchema(mongoose){
 		propostas: String
 		
 	});
+	
+	
+	this.avaliacaoSchema = new Schema({
+		idProj: String,
+		idPerfil: String,
+		nota: String,
+		descricao: String,
+		replica: String,
+		createdOn: {type: Date, default: Date.now}
+	});
+	
+	
+	this.perfilSchema = new Schema({
+		idUser: String,
+		nome: String,
+		especialidade: String,
+		ranking: String,
+		projetoConcluido: String,
+		dataRegistro: {type: Date, default: Date.now},
+		resumo: String,
+		perfil: String,
+		habilidades: String,
+		areaInteresse: String
+		
+	});
+	
+	
+	this.inscricaoSchema = new Schema({
+		idProj: String,
+		idUser: String,
+		status: String
+		
+		
+	});
+	
 }
 
 

@@ -11,16 +11,28 @@ var options = {
 }
 mongoose.connect('mongodb://localhost/test', options);
 
-var AvaliacaoSchema = require('./schema/avaliacaoShema.js').AvaliacaoSchema;
-var avaliacaoSchemaInstance = new AvaliacaoSchema(mongoose);
+//Schemas IMPORT
+var ProjetoSchema = require('./schema/projetoShema.js').ProjetoSchema;
+var projetoSchemaInstance = new ProjetoSchema(mongoose);
 
+
+//Services IMPORT
 var AvaliacaoService = require('./services/avaliacaoService.js').AvaliacaoService;
-var avaliacaoServiceInstance = 
-					new AvaliacaoService(mongoose, avaliacaoSchemaInstance);
+var avaliacaoServiceInstance = new AvaliacaoService(mongoose, projetoSchemaInstance);
+var PerfilService = require('./services/perfilService.js').PerfilService;
+var perfilServiceInstance = new PerfilService(mongoose, projetoSchemaInstance);
 
 //servicos
-app.post('/salvar', function (req, res) {
+app.post('/salvaAvaliacaor', function (req, res) {
 	avaliacaoServiceInstance.salvarAvaliacao(req.body, function(response){
+		res.send(response);
+	}, function(err){
+		res.send(err);
+	});
+});
+
+app.post('/salvaPerfil', function (req, res) {
+	perfilServiceInstance.salvarPerfil(req.body, function(response){
 		res.send(response);
 	}, function(err){
 		res.send(err);
