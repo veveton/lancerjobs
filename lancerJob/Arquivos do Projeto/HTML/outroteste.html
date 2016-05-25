@@ -31,6 +31,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script src="scriptsjava.js"></script>
 
 <!-- Script to Activate the Carousel -->
     <script>
@@ -65,22 +66,23 @@
 <li class="dropdown">
 <a href="http://shapebootstrap.net/demo/html/fornax/about.html" class="dropdown-toggle" data-toggle="dropdown">Sobre Nós <b class="caret"></b></a>
 <ul class="dropdown-menu">
-<li><a href="#">Company</a></li>
-<li><a href="#">History</a></li>
-<li><a href="#">Team</a></li>
+<li><a href="#">Empresa</a></li>
+<li><a href="#">Equipe</a></li>
+<li><a href="#">...</a></li>
 </ul>
 </li>
 <li><a href="#">Contato</a></li>
-<li><a href="register.html">Registre-se!</a></li>
+
 <!-- Login -->
 <li>
-<form id="signin" class="navbar-form navbar-right" role="form">
+<form id="signin" class="navbar-form navbar-right" role="form" method="POST">
     <div class="input-group">
 		<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
 		<input id="email" type="email" class="form-control" name="email" value="" placeholder="Email Address">                                        
 		<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
 		<input id="password" type="password" class="form-control" name="password" value="" placeholder="Password">
-		<button type="submit" class="btn btn-primary">Login</button>
+		<button type="submit" class="btn btn-primary" onClick="validarLogin()">Login</button>
+		<a href="register.html"><button type="button" class="btn btn-primary">Registre-se!</button></a>
     </div>
 </li>
 </form>
@@ -150,9 +152,9 @@
 <img src="./img/computer.png">
 <h2>Anúncio de Jobs</h2>
 <p>
-Cadastro rápido de serviços.
+Cadastro rápido de demanda de projetos (serviços).
 </p>
-<a href="#">Saiba Mais →</a>
+<a href="cadastrar_projeto.html">Anunciar agora →</a>
 </div>
 <div class="span3">
 <img src="./img/business-card.png">
@@ -160,19 +162,19 @@ Cadastro rápido de serviços.
 <p>
 Divulgação de perfil profissional para comunidade do LancerJobs.com.
 </p>
-<a href="#">Read More →</a>
+<a href="cadastrar_perfil.html">Divulgar agora →</a>
 </div>
 <div class="span3">
 <img src="./img/search-document.png">
-<h2>Busca de Oportunidades</h2>
+<h2>Busca Rápida</h2>
 <p>
-Busca por jobs para concorrer ou perfis profissionais do seu interesse.
+Busca por jobs ou perfis profissionais do seu interesse.
 </p>
-<a href="http://shapebootstrap.net/demo/html/fornax/#">Read More →</a>
+<a href="busca.html">Pesquisar agora →</a>
 </div>
 <div class="span3">
 <img src="./img/graphic.png">
-<h2>Painel de Controle Personalizado</h2>
+<h2>Painel de Controle</h2>
 <p>
 Visualização e edição de perfil, lista de projetos em andamento e concluídos.
 </p>

@@ -101,33 +101,30 @@
 	<form class="form-horizontal" action='' method="POST">
 		<fieldset>
 			<div id="legend">
-				<h2><b>Registro de Usuário</b></h2><br/>
+				<h2><b>Busca de Projetos e Perfis</b></h2><br/>
 			</div>
 			<div class="control-group">
-				<label class="control-label" for="nome">Nome: </label>
-				<div class="controls"><input type="text" id="nome" name="nome" placeholder="" class="input-xlarge"></div>
+				<label class="control-label" for="opcao_busca">Buscar por: </label>
+				<div class="controls">
+					<select name="opcao_busca">
+						<option value="">--Selecionar--</option>
+					  	<option value="projetos">Projetos</option>
+					  	<option value="perfis">Perfis Profissionais</option>
+					</select>
+				</div>
 			</div>
 			<div class="control-group">
-				<label class="control-label" for="CPF">CPF ou CNPJ: </label>
-				<div class="controls"><input type="number" id="cpf" name="cpf" placeholder="" class="input-xlarge"></div>
-			</div>
-			<div class="control-group">
-				<label class="control-label" for="email">E-mail: </label>
-				<div class="controls"><input type="text" id="email" name="email" placeholder="" class="input-xlarge"></div>
-			</div>
-			<div class="control-group">
-				<label class="control-label" for="senha">Senha: </label>
-				<div class="controls"><input type="password" id="senha" name="senha" placeholder="" class="input-xlarge"></div>
-			</div>
-			<div class="control-group">
-				<label class="control-label" for="senha_conf">Confirmar senha: </label>
-				<div class="controls"><input type="password" id="senha_conf" name="senha_conf" placeholder="" class="input-xlarge"></div>
+				<label class="control-label" for="busca">Palavras-chave: </label>
+				<div class="controls"><input type="text" id="busca" name="busca" placeholder="Palavras-chave da busca" class="input-xlarge"></div>
 			</div>
 			<div class="control-group"><div class="controls">
-				<button type="submit" class="btn btn-primary">Registrar</button>
+				<button type="submit" class="btn btn-primary" nome="busca">Pesquisar!</button>
 			</div>
 		</fieldset>
 	</form>
+	
+	<!-- Criar tela para listar projetos e/ou perfis encontrados na busca pelo banco -->
+	
 </div>
  
  

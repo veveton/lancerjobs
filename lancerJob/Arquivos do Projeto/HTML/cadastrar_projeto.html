@@ -38,8 +38,8 @@
         interval: 3000 //changes the speed
     })
     </script>
-
 </head>
+
 <body>
  
 <div id="header-row">
@@ -101,30 +101,62 @@
 	<form class="form-horizontal" action='' method="POST">
 		<fieldset>
 			<div id="legend">
-				<h2><b>Registro de Usuário</b></h2><br/>
+				<h2><b>Cadastrar Projeto</b></h2><br/>
+			</div>
+			
+			<div class="control-group">
+				<label class="control-label" for="nome_user">Nome do Usuário: </label>
+				<div class="controls"><!-- Imprimir na tela o nome do usuário logado -->Fulano de Tal [Colocar para imprimir o nome do usuário logado]</div>
+			</div>
+			
+			<div class="control-group">
+				<label class="control-label" for="nome_projeto">Nome do Projeto: </label>
+				<div class="controls"><input type="text" id="nome_projeto" name="nome_projeto" placeholder="Nome do projeto" class="input-xlarge"></div>
 			</div>
 			<div class="control-group">
-				<label class="control-label" for="nome">Nome: </label>
-				<div class="controls"><input type="text" id="nome" name="nome" placeholder="" class="input-xlarge"></div>
+				<label class="control-label" for="horas">Horas Previstas: </label>
+				<div class="controls"><input type="number" id="horas" name="horas" placeholder="Horas previstas de trabalho" class="input-xlarge"></div>
 			</div>
 			<div class="control-group">
-				<label class="control-label" for="CPF">CPF ou CNPJ: </label>
-				<div class="controls"><input type="number" id="cpf" name="cpf" placeholder="" class="input-xlarge"></div>
+				<label class="control-label" for="data_termino">Data prevista de término: </label>
+				<div class="controls"><input type="date" format="dd/MM/yyyy" id="data_termino" name="data_termino" placeholder="" class="input-xlarge"></div>
 			</div>
 			<div class="control-group">
-				<label class="control-label" for="email">E-mail: </label>
-				<div class="controls"><input type="text" id="email" name="email" placeholder="" class="input-xlarge"></div>
+				<label class="control-label" for="categoria">Categoria: </label>
+				<div class="controls"><input type="text" id="categoria" name="categoria" placeholder="Categoria" class="input-xlarge"></div>
 			</div>
 			<div class="control-group">
-				<label class="control-label" for="senha">Senha: </label>
-				<div class="controls"><input type="password" id="senha" name="senha" placeholder="" class="input-xlarge"></div>
+				<label class="control-label" for="requisitos">Requisitos: </label>
+				<div class="controls"><input type="text" id="requisitos" name="requisitos" placeholder="Requisitos" class="input-xlarge"></div>
 			</div>
 			<div class="control-group">
-				<label class="control-label" for="senha_conf">Confirmar senha: </label>
-				<div class="controls"><input type="password" id="senha_conf" name="senha_conf" placeholder="" class="input-xlarge"></div>
+				<label class="control-label" for="nivel">Nível: </label>
+				<div class="controls">
+					<input type="radio" name="nivel" value="iniciante"> Iniciante </input>
+					<input type="radio" name="nivel" value="intermediario"> Intermediário </input>
+					<input type="radio" name="nivel" value="avancado"> Avançado </input>
+				</div>
 			</div>
-			<div class="control-group"><div class="controls">
-				<button type="submit" class="btn btn-primary">Registrar</button>
+			<div class="control-group">
+				<label class="control-label" for="prioridade">Prioridade: </label>
+				<div class="controls">
+					<input type="radio" name="prioridade" value="alta"> Alta </input>
+					<input type="radio" name="prioridade" value="baixa"> Baixa </input>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="descricao">Decsrição do projeto: </label>
+				<div class="controls">
+					<textarea type="text" id="descricao" name="descricao" placeholder="Descrição do projeto" class="input-xlarge" rows="10"></textarea>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="valor">Valor do projeto: </label>
+				<div class="controls"><input type="text" id="valor" name="valor" placeholder="Valor (R$)" class="input-xlarge"></div>
+			</div>
+			<div class="controls">
+				<button class="btn btn-primary">Cadastrar!</button>
+			</div>
 			</div>
 		</fieldset>
 	</form>
