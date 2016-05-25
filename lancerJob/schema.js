@@ -8,6 +8,21 @@ function AppSchema(mongoose){
 		senha: String,
 		createdOn: {type: Date, default: Date.now}
 	});
+	
+	this.projetoSchema = new Schema({
+		idcadastro: String,
+		nomeproj: String,
+		horas:String,
+		prazofinal: String,
+		categoria: String,
+		requisitos: String,
+		nivel: String,
+		prioridade: String,
+		descricao: String,
+		valor: String,
+		proposta: String,
+		createdOn: {type: Date, default: Date.now}
+	});
 }
 
 
