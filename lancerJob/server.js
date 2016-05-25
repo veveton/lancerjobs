@@ -4,6 +4,8 @@ var bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
 
+app.use(express.static('public'));//SETAR PASTA INICIAL DO SISTEMA
+
 var mongoose = require('mongoose');
 var options = {
   db: { native_parser: true },
