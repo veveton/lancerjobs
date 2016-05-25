@@ -1,0 +1,80 @@
+<DOCTYPE HTML>
+<html lang="pt-br" ng-app="app">
+	<meta charset="utf-8"/>
+	<head>
+	
+	<title> Adicionar</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/controller.js"></script>
+	<script src="js/jquery-1.12.3.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/estilo.css">
+	
+	</head>
+	<body ng-controller="appController">
+		
+	<!-- 	
+			AUDIO GANDALF SAX
+		<audio autoplay="autoplay" controls>
+	  		<source src="/music/gandalf.mp3" type="audio/ogg">
+	 		 
+			Your browser does not support the audio element.
+		</audio> 
+	-->
+		
+		<h1 class="margem">{{hello}}</h1>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-4">
+					<form>
+					<p>Nome:<input type="text" ng-model="nome" /></p>
+					<p>Sobrenome:<input type="text" ng-model="sobrenome"/></p>
+					</form>
+					<div>
+						<input  class="btn btn-danger" type="button" value="Listar Contato" ng-click="listar()"/> 
+				
+						<input  class="btn btn-primary"  type="button" value="Adicionar Contato" ng-if="nome.length>2 && sobrenome.length>2 && idEditar==null" ng-click="adicionar()"/>
+						
+						<br/><p></p>
+						<input  class="btn btn-success"  type="button" value="Confirmar Edição" ng-if="idEditar!=null"  ng-click="editarConfirmar()"/>
+				
+						<input  class="btn btn-primary"  type="button" value="Cancelar Edição" ng-if="idEditar!=null"  ng-click="cancelarEdicao()"/></br>
+						<br/>
+				
+					</div>
+				</div>
+				<div class="col-md-8">
+					<table class="table"> 
+						<thead>
+							<tr ng-show="pessoaList.length>0">
+								<th>Id</th>
+								<th>Nome</th>
+								<th>Sobrenome</th>
+								<th>
+									<a ng-href="contato.html"><button class="btn btn-primary"  type="button">Ver Telefones</button></a>
+								</th>
+							</tr>
+						</thead>
+						<tbody ng-repeat="pessoa in pessoaList | orderBy:'nome'"  >
+							<tr>
+								<td>{{pessoa._id}}</td>
+								<td>{{pessoa.nome}}</td>
+								<td>{{pessoa.sobrenome}}</td>
+								
+								<td>
+									<input  class="btn btn-danger" type="button" value="Delete" ng-click="deletar(pessoa._id)"/>
+									<input  class="btn btn-warning" type="button" value="Editar" ng-click="editar(pessoa._id)"/>
+								</td>
+							
+							
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</body>
+<html>

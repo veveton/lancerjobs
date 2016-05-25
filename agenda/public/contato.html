@@ -1,0 +1,88 @@
+<DOCTYPE HTML>
+<html lang="pt-br" ng-app="app">
+	<meta charset="utf-8"/>
+	<head>
+	<title> Contato</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/controllerT.js"></script>
+	<script src="js/jquery-1.12.3.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	
+	
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/estilo.css">
+	
+	</head>
+	<body ng-controller="controllerTelefone">
+		<h1 class="margem"><a ng-href="/"><button class="btn btn-primary"  type="button">Voltar</button></a>
+		{{hello}}</h1>
+		
+			
+		<!--
+		<input  class="btn btn-danger" type="button" ng-hide="contatoList.length>0" value="Listar Contatos" ng-click="listarContato()"/>
+	 
+		<input  class="btn btn-danger" type="button" value="Contatos + Telefones" ng-click="allTelefones()" ng-if="!todosTelefones.length>0 "/> 
+		-->
+		 
+		<select id="comboBox" class="form-control" ng-change="listar(contato)" ng-model="contato" ng-show="contatoList.length>0" ng-options="' - Nome: '+contato.nome+' '+contato.sobrenome for contato in contatoList"> 
+			<option value="">Selecione o Usuario </option>
+			<option value="{{contato}}"> </option>
+		</select>
+		
+		
+		
+		
+		
+		
+		<div class="espaco">Telefone:<input  type="text" ng-model="telefone" placeholder="Somente Numeros" /></div>
+		<div class="espaco">Tipo:<input  type="text" ng-model="tipo" placeholder="Tipo" /></div>
+	
+	
+		<input  class="btn btn-primary"  type="button" ng-if="telefone.length>2 && tipo.length>2 && contato._id!=null" value="Adicionar Telefone"  ng-click="adicionar(contato)"/>
+			
+		<input  class="btn btn-success"  type="button" value="Confirmar Edição" ng-show="itemEditarT.length>0"  ng-click="editarConfirmar()"/>
+	
+		<input  class="btn btn-primary"  type="button" value="Cancelar Edição" ng-if="indexEditarT!=null"  ng-click="cancelarEdicao()"/>
+		
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="row">
+						<div class="col-md-8">
+								<table class="table"> 
+									<thead>
+										<tr>
+											<th colspan="4" nowrap="NOWRAP"> <center>Tabela de Numeros do Contato Selecionado</center></th>
+										</tr>
+										<tr>
+										
+										<th>Nome</th>
+										<th>Sobreome</th>
+										<th>Numero</th>
+										<th>Tipo</th>
+									</tr>
+									</thead>
+									
+									<tbody ng-repeat="telefone in telefoneList" >
+									<tr ng-if="contato.nome != null" >
+										
+										<td>{{contato.nome}}</td>
+										<td>{{contato.sobrenome}}</td>
+										<td>{{telefone.numero}}</td>
+										<td>{{telefone.tipo}}</td>
+										<td><input  class="btn btn-danger" type="button" value="Delete" ng-click="deletar(contato._id,telefone._id)"/>
+										<input  class="btn btn-warning" type="button" value="Editar" ng-click="editar(telefone)"/></td>
+											
+										</tr>
+										
+									</tbody>
+								</table>
+							</div>
+							
+					</div>
+				</div>
+			</div>
+		</div>	
+	</body>
+<html>
