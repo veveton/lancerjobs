@@ -11,7 +11,7 @@ var options = {
 }
 mongoose.connect('mongodb://localhost/test', options);
 
-var AvaliacaoSchema = require('./esqueleto/avaliacaoSchema.js').AvaliacaoSchema;
+var AvaliacaoSchema = require('./schema/avaliacaoShema.js').AvaliacaoSchema;
 var avaliacaoSchemaInstance = new AvaliacaoSchema(mongoose);
 
 var AvaliacaoService = require('./services/avaliacaoService.js').AvaliacaoService;

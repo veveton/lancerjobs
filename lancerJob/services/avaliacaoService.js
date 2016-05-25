@@ -1,5 +1,5 @@
 function AvaliacaoService(mongoose, appSchema){
-	var Avaliacao = mongoose.model("Projeto", appSchema.avaliacaoService);	
+	var Avaliacao = mongoose.model("Avaliacao", appSchema.avaliacaoSchema);	
 	
 	this.salvarAvaliacao = function(p_avaliacao, successCallback, errorCallback){
 		var avaliacaoSave = new Avaliacao(p_avaliacao);
@@ -12,4 +12,4 @@ function AvaliacaoService(mongoose, appSchema){
 	}
 }
 
-module.exports.ProjetoService = ProjetoService;
+module.exports.AvaliacaoService = AvaliacaoService;
