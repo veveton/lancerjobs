@@ -38,8 +38,8 @@
         interval: 3000 //changes the speed
     })
     </script>
-
 </head>
+
 <body>
  
 <div id="header-row">
@@ -101,67 +101,48 @@
 	<form class="form-horizontal" action='' method="POST">
 		<fieldset>
 			<div id="legend">
-				<h2><b>Cadastrar Projeto</b></h2><br/>
+				<h2><b>Cadastrar Perfil Profissional</b></h2><br/>
 			</div>
 			
 			<div class="control-group">
-				<label class="control-label" for="nome_projeto">Nome do Usuário: </label>
+				<label class="control-label" for="nome_user">Nome do Usuário: </label>
 				<div class="controls"><!-- Imprimir na tela o nome do usuário logado -->Fulano de Tal [Colocar para imprimir o nome do usuário logado]</div>
 			</div>
 			
 			<div class="control-group">
-				<label class="control-label" for="nome_projeto">Nome do Projeto: </label>
-				<div class="controls"><input type="text" id="nome_projeto" name="nome_projeto" placeholder="Nome do projeto" class="input-xlarge"></div>
+				<label class="control-label" for="especialidade">Especialidade: </label>
+				<div class="controls"><input type="text" id="especialidade" name="especialidade" placeholder="O que você faz?" class="input-xlarge"></div>
 			</div>
 			<div class="control-group">
-				<label class="control-label" for="horas">Horas Previstas: </label>
-				<div class="controls"><input type="text" id="horas" name="horas" placeholder="Horas previstas de trabalho" class="input-xlarge"></div>
-			</div>
-			<div class="control-group">
-				<label class="control-label" for="data_termino">Data prevista de término: </label>
-				<div class="controls"><input type="text" id="data_termino" name="data_termino" placeholder="Prazo de conclusão do projeto" class="input-xlarge"></div>
-			</div>
-			<div class="control-group">
-				<label class="control-label" for="categoria">Categoria: </label>
-				<div class="controls"><input type="text" id="categoria" name="categoria" placeholder="Categoria" class="input-xlarge"></div>
-			</div>
-			<div class="control-group">
-				<label class="control-label" for="requisitos">Requisitos: </label>
-				<div class="controls"><input type="text" id="requisitos" name="requisitos" placeholder="Requisitos" class="input-xlarge"></div>
-			</div>
-			<div class="control-group">
-				<label class="control-label" for="nivel">Nível: </label>
+				<label class="control-label" for="resumo">Resumo da Experiência Profissional: </label>
 				<div class="controls">
-					<input type="radio" name="nivel" value="iniciante"> Iniciante </input>
-					<input type="radio" name="nivel" value="intermediario"> Intermediário </input>
-					<input type="radio" name="nivel" value="avancado"> Avançado </input>
+					<textarea type="text" id="resumo" name="resumo" placeholder="Quais suas experiências profissionais?" class="input-xlarge" rows="20"></textarea>
 				</div>
 			</div>
 			<div class="control-group">
-				<label class="control-label" for="prioridade">Prioridade: </label>
-				<div class="controls">
-					<input type="radio" name="prioridade" value="alta"> Alta </input>
-					<input type="radio" name="prioridade" value="baixa"> Baixa </input>
-				</div>
+				<label class="control-label" for="perfil">Perfil: </label>
+				<div class="controls"><input type="text" id="perfil" name="perfil" placeholder="Fale um pouco sobre você." class="input-xlarge"></div>
 			</div>
 			<div class="control-group">
-				<label class="control-label" for="descricao">Decsrição do projeto: </label>
-				<div class="controls">
-					<textarea type="text" id="descricao" name="descricao" placeholder="Descrição do projeto" class="input-xlarge" rows="10"></textarea>
-				</div>
+				<label class="control-label" for="habilidades">Habilidades: </label>
+				<div class="controls"><input type="text" id="habilidades" name="habilidades" placeholder="Quais suas habilidades profissionais?" class="input-xlarge"></div>
 			</div>
 			<div class="control-group">
-				<label class="control-label" for="valor">Valor do projeto: </label>
-				<div class="controls"><input type="text" id="valor" name="valor" placeholder="Valor (R$)" class="input-xlarge"></div>
+				<label class="control-label" for="area_interesse">Áreas de interesse: </label>
+				<div class="controls"><input type="text" id="area_interesse" name="area_interesse" placeholder="Quais as áreas que você quer atuar?" class="input-xlarge"></div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="foto">Foto: </label>
+				<div class="controls"><input type="file" id="foto" name="foto" placeholder="" class="input-xlarge"></div>
 			</div>
 			<div class="controls">
-				<button class="btn btn-primary">Cadastrar!</button>
+				<button type="submit" class="btn btn-primary">Cadastrar!</button>
 			</div>
 			</div>
 		</fieldset>
 	</form>
 </div>
- 
+
  
 <footer>
 <div class="container">
