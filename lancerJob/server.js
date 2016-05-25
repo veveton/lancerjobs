@@ -11,16 +11,16 @@ var options = {
 }
 mongoose.connect('mongodb://localhost/test', options);
 
-var AppSchema = require('./schema.js').AppSchema;
-var appSchemaInstance = new AppSchema(mongoose);
+var AvaliacaoSchema = require('./esqueleto/avaliacaoSchema.js').AvaliacaoSchema;
+var avaliacaoSchemaInstance = new AvaliacaoSchema(mongoose);
 
-var ContatoService = require('./contatoService.js').ContatoService;
-var contatoServiceInstance = 
-					new ContatoService(mongoose, appSchemaInstance);
+var AvaliacaoService = require('./services/avaliacaoService.js').AvaliacaoService;
+var avaliacaoServiceInstance = 
+					new AvaliacaoService(mongoose, avaliacaoSchemaInstance);
 
 //servicos
 app.post('/salvar', function (req, res) {
-	contatoServiceInstance.salvarContato(req.body, function(response){
+	avaliacaoServiceInstance.salvarAvaliacao(req.body, function(response){
 		res.send(response);
 	}, function(err){
 		res.send(err);
@@ -29,3 +29,4 @@ app.post('/salvar', function (req, res) {
 
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
+})

@@ -1,7 +1,7 @@
-function AppSchema(mongoose){
+function ProjetoSchema(mongoose){
 	var Schema = mongoose.Schema;
 
-	this.contatoSchema = new Schema({
+	this.projetoSchema = new Schema({
 		idUser: String,
 		nomeProjeto: String,
 		horas: String,
@@ -19,4 +19,4 @@ function AppSchema(mongoose){
 }
 
 
-module.exports.AppSchema = AppSchema;
+module.exports.ProjetoSchema = ProjetoSchema;
