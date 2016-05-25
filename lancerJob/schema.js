@@ -23,6 +23,12 @@ function AppSchema(mongoose){
 		proposta: String,
 		createdOn: {type: Date, default: Date.now}
 	});
+	this.inscricaoSchema = new Schema({
+		idproj: String,
+		idcadastro: String,
+		status: Boolean,
+		createdOn: {type: Date, default: Date.now}
+	});
 }
 
 
