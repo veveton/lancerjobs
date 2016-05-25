@@ -9,23 +9,50 @@ var options = {
   db: { native_parser: true },
   server: { poolSize: 5 }
 }
-mongoose.connect('mongodb://localhost/test', options);
+mongoose.connect('mongodb://localhost/LancerJobs', options);
 
 var AppSchema = require('./schema.js').AppSchema;
 var appSchemaInstance = new AppSchema(mongoose);
 
-var ContatoService = require('./contatoService.js').ContatoService;
-var contatoServiceInstance = 
-					new ContatoService(mongoose, appSchemaInstance);
+var CadastroService = require('./cadastroService.js').CadastroService;
+var cadastroServiceInstance = new CadastroService(mongoose, appSchemaInstance);
+//----------------CadastroService---- Ini-----------
 
-//servicos
-app.post('/salvar', function (req, res) {
-	contatoServiceInstance.salvarContato(req.body, function(response){
+app.post('/salvarCadastro', function (req, res) {
+	cadastroServiceInstance.salvarContato(req.body, function(response){
+		res.send(response);
+	}, function(err){
+		res.send(err);
+	});
+});
+app.post('/editarCadastro', function (req, res) {
+	cadastroServiceInstance.salvarContato(req.body, function(response){
 		res.send(response);
 	}, function(err){
 		res.send(err);
 	});
 });
 
+app.get("/listarCadastro", function(req,res){
+	
+	cadastroServiceInstance.listarCadastroService(req.body, function(response){
+		res.send(response);
+	}, function(err){
+		res.send(err);
+	});
+});
+
+app.post('/addCadastro', function (req, res) {
+	cadastroServiceInstance.addCadastroService(req.body, function(response){
+		res.send(response);
+	}, function(err){
+		res.send(err);
+	});
+});
+
+
+
+//----------------CadastroService---- fim-----------
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
+});

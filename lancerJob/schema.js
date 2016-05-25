@@ -1,14 +1,14 @@
-var express = require('express');
-var app=express();
-var mysql = require('mysql');
-var bodyParser = require('body-parser');
+function AppSchema(mongoose){
+	var Schema = mongoose.Schema;
 
-app.use(express.static('public'));
+	this.cadastroSchema = new Schema({
+		nome: String,
+		cpf: String,
+		email:String,
+		senha: String,
+		createdOn: {type: Date, default: Date.now}
+	});
+}
 
--------------------------------
 
-server.js
-
-app.listen(3000,function(){
-	console.log('Example app listening on post 3000');
-});
+module.exports.AppSchema = AppSchema;
