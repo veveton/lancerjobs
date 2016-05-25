@@ -35,6 +35,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script src="scriptsjava.js"></script>
 
 <!-- Script to Activate the Carousel -->
     <script>
@@ -78,18 +79,18 @@
 
 <!-- Login -->
 <li>
-<form id="signin" class="navbar-form navbar-right" role="form" method="POST">
+<form id="signin" class="navbar-form navbar-right" role="form" method="POST" novalidate>
     <div class="input-group">
 		<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-		<input id="email" type="email" class="form-control" name="email" value="" placeholder="E-mail">                                        
+		<input id="email" type="email" class="form-control" name="email" value="" placeholder="Email Address">                                        
 		<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-		<input id="password" type="password" class="form-control" name="password" value="" placeholder="Senha">
-		<button type="submit" class="btn btn-primary">Login</button>
+		<input id="password" type="password" class="form-control" name="password" value="" placeholder="Password">
+		<button type="submit" class="btn btn-primary" onClick="validarLogin()">Login</button>
 		<a href="register.html"><button type="button" class="btn btn-primary">Registre-se!</button></a>
     </div>
 </li>
 </form>
-</li> <!-- Login -->
+</li> <!-- FIM Login -->
 
 </ul>
 </div>
@@ -100,38 +101,59 @@
 </div>
 </div>
 </div>
- 
+
 <div class="container">
-	<form class="form-horizontal" action='' method="POST">
-		<fieldset>
-			<div id="legend">
-				<h2><b>Registro de Usuário</b></h2><br/>
-			</div>
-			<div class="control-group">
-				<label class="control-label" for="nome">Nome: </label>
-				<div class="controls"><input type="text" id="nome" name="nome" placeholder="" class="input-xlarge"></div>
-			</div>
-			<div class="control-group">
-				<label class="control-label" for="CPF">CPF ou CNPJ: </label>
-				<div class="controls"><input type="number" id="cpf" name="cpf" placeholder="" class="input-xlarge"></div>
-			</div>
-			<div class="control-group">
-				<label class="control-label" for="email">E-mail: </label>
-				<div class="controls"><input type="text" id="email" name="email" placeholder="" class="input-xlarge"></div>
-			</div>
-			<div class="control-group">
-				<label class="control-label" for="senha">Senha: </label>
-				<div class="controls"><input type="password" id="senha" name="senha" placeholder="" class="input-xlarge"></div>
-			</div>
-			<div class="control-group">
-				<label class="control-label" for="senha_conf">Confirmar senha: </label>
-				<div class="controls"><input type="password" id="senha_conf" name="senha_conf" placeholder="" class="input-xlarge"></div>
-			</div>
-			<div class="control-group"><div class="controls">
-				<button type="submit" class="btn btn-primary">Registrar</button>
-			</div>
-		</fieldset>
-	</form>
+	
+	<div class="container-fluid">
+	<div class="row">
+		<table style="width:500px">
+  			<tr>
+    			<th rowspan="2"><img alt="Foto do perfil" src="./img/img-thing.jpg" width="150px" height="200px"></th>
+    			<th>Nome:</th>
+    			<td>Pikachu da Silva</td>
+  			</tr>
+  			<tr>
+   				<th>Ranking:</th>
+    			<td>
+					<div starRating ng-model="rating.rating" max="5"></div>
+				</td>
+ 			</tr>
+		</table>
+
+	</div>
+	<div class="row">
+			<dl>
+				<dt>
+					Description lists
+				</dt>
+				<dd>
+					A description list is perfect for defining terms.
+				</dd>
+				<dt>
+					Euismod
+				</dt>
+				<dd>
+					Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.
+				</dd>
+				<dd>
+					Donec id elit non mi porta gravida at eget metus.
+				</dd>
+				<dt>
+					Malesuada porta
+				</dt>
+				<dd>
+					Etiam porta sem malesuada magna mollis euismod.
+				</dd>
+				<dt>
+					Felis euismod semper eget lacinia
+				</dt>
+				<dd>
+					Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+				</dd>
+			</dl>
+	</div>
+</div>
+	
 </div>
  
  

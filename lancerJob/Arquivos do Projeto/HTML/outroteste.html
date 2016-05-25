@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <!-- saved from url=(0043)http://shapebootstrap.net/demo/html/fornax/ -->
-<html lang="pt-br"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="pt-br" ng-app="angularApp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<!-- Ícone do site no navegador -->
+<link rel="shortcut icon" href="./img/logo.png.ico" type="image/x-icon" />
 
 <title>LancerJobs.com</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
-<meta name="author" content="">
 
-
+<!-- Links do AngularJS -->
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="angularApp.js"></script>
+<script src="angularController.js"></script>
  
 <link href="./ShapeBootstrap Clean Template_files/bootstrap.css" rel="stylesheet">
 <link href="./ShapeBootstrap Clean Template_files/bootstrap-responsive.css" rel="stylesheet">
@@ -41,7 +45,7 @@
     </script>
 
 </head>
-<body>
+<body ng-controller="angularController">
  
 <div id="header-row">
 <div class="container">
@@ -75,7 +79,7 @@
 
 <!-- Login -->
 <li>
-<form id="signin" class="navbar-form navbar-right" role="form" method="POST">
+<form id="signin" class="navbar-form navbar-right" role="form" method="POST" novalidate>
     <div class="input-group">
 		<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
 		<input id="email" type="email" class="form-control" name="email" value="" placeholder="Email Address">                                        
@@ -86,7 +90,7 @@
     </div>
 </li>
 </form>
-</li> <!-- Login -->
+</li> <!-- FIM Login -->
 
 </ul>
 </div>
@@ -178,7 +182,7 @@ Busca por jobs ou perfis profissionais do seu interesse.
 <p>
 Visualização e edição de perfil, lista de projetos em andamento e concluídos.
 </p>
-<a href="http://shapebootstrap.net/demo/html/fornax/#">Read More →</a>
+<a href="painel_controle.html">Visualizar agora →</a>
 </div>
 </div>
  
