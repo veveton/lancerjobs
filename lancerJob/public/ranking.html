@@ -31,6 +31,36 @@
         interval: 3000 //changes the speed
     })
     </script>
+    
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+	<script type="text/javascript">
+   		$(function() {    		
+			$('input[type=submit]').click(function() {
+				$('p').html('<span class="stars">'+parseFloat($('input[name=amount]').val())+'</span>');
+				$('span.stars').stars();
+			});    		
+			$('input[type=submit]').click();
+		});
+
+		$.fn.stars = function() {
+			return $(this).each(function() {
+				$(this).html($('<span />').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 16));
+			});
+		}
+	</script>
+	<style type="text/css">
+		span.stars, span.stars span {
+			display: block;
+			background: url(http://www.ulmanen.fi/stuff/stars.png) 0 -16px repeat-x;
+			width: 80px;
+			height: 16px;
+		}
+	
+		span.stars span {
+			background-position: 0 0;
+		}
+	</style>
+    
 </head>
 
 <body ng-controller="angularController">
@@ -99,7 +129,11 @@
 		        <input id="rating1" type="radio" name="rating" value="1">
 		        <label for="rating1"></label>
 			</div>
-		
+			
+			<input type="text" name="amount" value="2.53" />
+			<input type="submit" value="update">
+			<p><span class="starRating">2</span></p>
+
 		</div>
 	</div>
 	 	 
