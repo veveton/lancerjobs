@@ -1,6 +1,14 @@
 angular.module("angularApp").controller("perfilController",function($scope,$http){
+		$scope.userList=[];
+		$scope.nome="";
+		$scope.especialidade="";
+		$scope.resumoProfissional="";
+		$scope.perfil="";
+		$scope.habilidade="";
+		$scope.areaInteresse="";
+		
 	
-	$scope.limpar = function(){
+		$scope.limpar = function(){
 		$scope.nome="";
 		$scope.especialidade="";
 		$scope.resumoProfissional="";
@@ -9,7 +17,7 @@ angular.module("angularApp").controller("perfilController",function($scope,$http
 		$scope.areaInteresse="";
 
 	};
-	
+		
 	$scope.validar = function(){
 		if($scope.nome == ""){
 			alert("Insira o nome que deseja exibir no perfil!");
@@ -27,6 +35,18 @@ angular.module("angularApp").controller("perfilController",function($scope,$http
 		}
 	}
 	
+	$scope.carregar = function(){
+		$http({
+			method: 'GET',
+			url: '/listarUser'	
+		})
+		.then(function sucessCallback(response){
+			$scope.userList = response.data;
+		}, function errorCallback(response){
+			alert(response.data);
+		});
+				
+	};
 	
 	$scope.profissionalList = function(){//ADICIONA PROFISSIONAL
 		

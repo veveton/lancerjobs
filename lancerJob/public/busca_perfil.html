@@ -12,7 +12,7 @@
 	<!-- Links do AngularJS -->
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 	<script src="./js/angularApp.js"></script>
-	<script src="./js/angularController.js"></script>
+	<script src="./js/perfilController.js"></script>
  
 	<!-- Links do CSS -->
 	<link href="./css/bootstrap.css" rel="stylesheet">
@@ -26,7 +26,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 </head>
 
-<body>
+<body ng-controller="perfilController">
  
 	<div id="header-row">
 		<div class="container">
@@ -113,37 +113,20 @@
 		<div class="row feature-box">
 			<div class="span12 cnt-title">
 				
-				<table class="table">
+				<table class="table" ng-repeat="projeto in projetoList | filter:filtro >
 					<tr>
-						<th col="50">ID do Perfil</th>
 						<th col="100">Nome do profissional</th>
 						<th>Ranking</th>
 						<th>Projetos Concluídos</th>
 						<th>Data de registro</th>
 						<th>Visualizar Perfil</th>
 					</tr>
+				
 					<tr>
-						<td>U000001</td>
-						<td>Fulano de Tal</td>
-						<td>nota 5</td>
-						<td>23</td>
-						<td>25/05/2016</td>
-						<td><a href="perfil.html"><button type="button" class="btn btn-primary">Visualizar!</button></a></td>
-					</tr>
-					<tr>
-						<td>U023891</td>
-						<td>Pikachu</td>
-						<td>nota 3</td>
-						<td>10</td>
-						<td>01/01/2000</td>
-						<td><a href="perfil.html"><button type="button" class="btn btn-primary">Visualizar!</button></a></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
+						<td>{{projeto.nome}}</td>
+						<td>{{projeto.raking}}</td>
+						<td>{{projeto.projConcluido}} </td>
+						<td>{{projeto.createdOn}}</td>
 						<td><a href="perfil.html"><button type="button" class="btn btn-primary">Visualizar!</button></a></td>
 					</tr>
 				</table>
