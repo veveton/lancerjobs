@@ -1,4 +1,4 @@
-angular.module("angularApp").controller("projetoController",function($scope,$http){
+angular.module("angularApp").controller("perfilController",function($scope,$http){
 	$scope.nomeproj = "";
 	$scope.horas = "";
 	$scope.prazofinal = "";

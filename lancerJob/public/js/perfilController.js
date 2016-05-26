@@ -5,33 +5,9 @@ angular.module("angularApp").controller("perfilController",function($scope,$http
 		$scope.especialidade="";
 		$scope.resumoProfissional="";
 		$scope.perfil="";
-		$scope.habilidades="":
-		areaInteresse="";
+		$scope.habilidades="";
+		$scope.areaInteresse="";
 
-	};
-	
-	
-	
-	$scope.profissionalList = function(){//ADICIONA PROFISSIONAL
-		
-		if($scope.validar() != false){
-		var perfil = {nomeprof:$scope.nomeprof,especialidade:$scope.especialidade,resumoprofissional:$scope.resumoprofissional,perfil:$scope.perfil,habilidades:$scope.habilidades,areainteresse:$scope.areainteresse};//PEGA O VALOR DO CAMPO
-		$http.post("/salvaPerfil",perfil, {
-			headers:{ 'Content-Type' : 'application/json' }
-		})
-		.then(
-				function(response){//CASO TRUE LIMPA E LISTA
-
-					$scope.limpar();
-					alert("Perfil inserido com Sucesso!")
-
-				},
-				function(response){//CASO DE ERRO
-					alert(response.data);
-				}
-		);
-	
-		}
 	};
 	
 	$scope.validar = function(){
@@ -50,5 +26,30 @@ angular.module("angularApp").controller("perfilController",function($scope,$http
 			return false;
 		}
 	}
+	
+	
+	$scope.profissionalList = function(){//ADICIONA PROFISSIONAL
+		
+		if($scope.validar() != false){
+		var perfil = {nome:$scope.nome,especialidade:$scope.especialidade,resumoProfissional:$scope.resumoProfissional,perfil:$scope.perfil,habilidades:$scope.habilidades,areaInteresse:$scope.areaInteresse};//PEGA O VALOR DO CAMPO
+		$http.post("/salvaPerfil",perfil, {
+			headers:{ 'Content-Type' : 'application/json' }
+		})
+		.then(
+				function(response){//CASO TRUE LIMPA E LISTA
+
+					$scope.limpar();
+					alert("Perfil inserido com Sucesso!")
+
+				},
+				function(response){//CASO DE ERRO
+					alert(response.data);
+				}
+		);
+	
+		}
+	};
+	
+	
 
 });

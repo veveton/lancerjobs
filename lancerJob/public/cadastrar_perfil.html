@@ -12,7 +12,7 @@
 	<!-- Links do AngularJS -->
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 	<script src="./js/angularApp.js"></script>
-	<script src="./js/angularController.js"></script>
+	<script src="./js/perfilController.js"></script>
  
 	<!-- Links do CSS -->
 	<link href="./css/bootstrap.css" rel="stylesheet">
@@ -27,7 +27,7 @@
 
 </head>
 
-<body>
+<body  ng-controller="perfilController">
  
 	<div id="header-row">
 		<div class="container">
@@ -122,7 +122,7 @@
 					<div class="controls"><input type="file" id="foto" name="foto" placeholder="" class="input-xlarge"></div>
 				</div>
 				<div class="controls">
-					<button type="submit" class="btn btn-primary" ng-click="profissionalList()">Cadastrar!</button>
+					<button type="submit" class="btn btn-primary" ng-click="profissionalList()"> Cadastrar!</button>
 				</div>
 				</div>
 			</fieldset>
