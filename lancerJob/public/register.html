@@ -37,20 +37,20 @@
 <!-- <script src="js/bootstrap.min.js"></script> -->
 
 <!-- Script to Activate the Carousel -->
-    <script>
+   <!--  <script>
     $('.carousel').carousel({
         interval: 3000 //changes the speed
     })
-    </script>
+    </script> -->
 
 </head>
-<body ng-controller="angularController">
+<body ng-controller="registroController">
  
 <div id="header-row">
 <div class="container">
 	<div class="row">
 		<div class="span3">
-			<a class="brand" href="#"><img src="./img/lancerjobs_logo_01.png"></a>
+			<a class="brand" href="/"><img src="./img/lancerjobs_logo_01.png"></a>
 		</div>
 	</div>
 </div>
@@ -65,7 +65,7 @@
 <ul class="nav">
 
 <!-- Menu -->
-<li class="active"><a href="outroteste.html">Página Inicial</a></li>
+<li class="active"><a href="/">Página Inicial</a></li>
 <li class="dropdown">
 <a href="http://shapebootstrap.net/demo/html/fornax/about.html" class="dropdown-toggle" data-toggle="dropdown">Sobre Nós <b class="caret"></b></a>
 <ul class="dropdown-menu">
@@ -109,26 +109,26 @@
 			</div>
 			<div class="control-group">
 				<label class="control-label" for="nome">Nome: </label>
-				<div class="controls"><input type="text" id="nome" name="nome" placeholder="" class="input-xlarge"></div>
+				<div class="controls"><input  type="text" ng-model="nome" class="input-xlarge"></div>
 			</div>
 			<div class="control-group">
 				<label class="control-label" for="CPF">CPF ou CNPJ: </label>
-				<div class="controls"><input type="number" id="cpf" name="cpf" placeholder="" class="input-xlarge"></div>
+				<div class="controls"><input  type="text" ng-model="cpfCnpj" class="input-xlarge"></div>
 			</div>
 			<div class="control-group">
 				<label class="control-label" for="email">E-mail: </label>
-				<div class="controls"><input type="text" id="email" name="email" placeholder="" class="input-xlarge"></div>
+				<div class="controls"><input  type="text" ng-model="email"  class="input-xlarge"></div>
 			</div>
 			<div class="control-group">
 				<label class="control-label" for="senha">Senha: </label>
-				<div class="controls"><input type="password" id="senha" name="senha" placeholder="" class="input-xlarge"></div>
+				<div class="controls"><input  type="text" ng-model="senha"  class="input-xlarge"></div>
 			</div>
 			<div class="control-group">
 				<label class="control-label" for="senha_conf">Confirmar senha: </label>
-				<div class="controls"><input type="password" id="senha_conf" name="senha_conf" placeholder="" class="input-xlarge"></div>
+				<div class="controls"><input  type="text" ng-model="confSenha" class="input-xlarge"></div>
 			</div>
 			<div class="control-group"><div class="controls">
-				<button type="submit" class="btn btn-primary">Registrar</button>
+				<input  class="btn btn-primary"  type="button" value="Registrar" ng-click="registrar()"/>
 			</div>
 		</fieldset>
 	</form>
