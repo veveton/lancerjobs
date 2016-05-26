@@ -33,7 +33,7 @@
     </script>
 </head>
 
-<body>
+<body ng-controller="projetoController">
  
 	<div id="header-row">
 		<div class="container">
@@ -98,7 +98,7 @@
 				
 				<div class="control-group">
 					<label class="control-label" for="nome_user">Nome do Usuário: </label>
-					<div class="controls"><!-- Imprimir na tela o nome do usuário logado -->Fulano de Tal [Colocar para imprimir o nome do usuário logado]</div>
+					<div class="controls"><!-- Imprimir na tela o nome do usuário logado --> ng-model="nome"</div>
 				</div>
 				
 				<div class="control-group">
