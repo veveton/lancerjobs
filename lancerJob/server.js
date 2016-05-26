@@ -11,6 +11,12 @@ var options = {
   db: { native_parser: true },
   server: { poolSize: 5 }
 }
+
+app.use(session({ secret: 'mypass', 
+	saveUninitialized: false,
+	resave: false,				
+	cookie: { maxAge: 60000000000000000000000 }}));
+	
 mongoose.connect('mongodb://localhost/LancerJobs', options);
 
 
@@ -51,10 +57,25 @@ var projetoServiceInstance = new ProjetoService(mongoose, appSchemaInstance);
 
 //servicos
 //----------------------Sessao-----------------------
-app.get('/sessaoAdicionar', function (req, res) {
-	req.session.usuario = {_id: 10, nome:"Victor Hugo"};
+
+
+
+
+app.post('/sessaoAdicionar', function (req, res) {
+	console.log(req.body);
+	usuarioServiceInstance.loguinService(req.body, function(response){
+		
+		
+		req.session.usuario = response;
+		
+		res.send(req.session.usuario);
 	
-	res.send(req.session.usuario);
+		
+	}, function(err){
+		res.send(err);
+	});
+	
+	
 });
 
 app.get('/sessaoConsultar', function (req, res) {
