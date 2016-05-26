@@ -30,8 +30,11 @@ function PerfilService(mongoose, appSchema){
 		});	
 	}
 	this.addperfilCadService = function(p_perfil,successCallback, errorCallback){		
-			Cadastro.update({_id: p_perfil.iduser},
-			{$addToSet: {perfil: p_perfil._id}},		
+		var a = {_id: p_perfil.params.id};	
+		console.log(a);
+		console.log(p_perfil.body);
+		Cadastro.update(a,
+			{$addToSet: {perfil: p_perfil.body}},		
 			function (err, data){
 				if (err) console.log(err);
 			

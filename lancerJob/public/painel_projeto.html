@@ -25,10 +25,9 @@
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
-	<!-- Script to Activate the Carousel -->
 </head>
 
-<body ng-controller="angularController">
+<body ng-controller="perfilController">
  
 	<div id="header-row">
 		<div class="container">
@@ -85,46 +84,106 @@
 	</div>
 	 
 	<div class="container">
-	 
-		<div class="row feature-box">
-			<div class="span12 cnt-title">
-				<h1>Sobre a Equipe dos Primos</i></h1><br/>
-				<span>
-					<table class="table">
-						<tr>
-							<td rowspan="2"><img src="./img/equipe/surubim.png" width=150px height=100px></td>
-							<th>Surubim</th>
-						</tr>
-						<tr>
-							<td>Gerente de projeto e jogador de futboi.</td>
-						</tr>
-						<tr>
-							<td rowspan="2"><img src="./img/equipe/marry.png" width=150px height=100px></td>
-							<th>Marry</th>
-						</tr>
-						<tr>
-							<td>Desenvolvedora e jogadora de CS nas horas vagas (não mais tão vagas assim).</td>
-						</tr>
-						<tr>
-							<td rowspan="2"><img src="./img/equipe/keiko.jpg" width=150px height=100px></td>
-							<th>Keiko</th>
-						</tr>
-						<tr>
-							<td>Designer com tecnologia japonesa.</td>
-						</tr>
-						<tr>
-							<td rowspan="2"><img src="./img/equipe/priscila.jpg" width=150px height=100px></td>
-							<th>Priscila</th>
-						</tr>
-						<tr>
-							<td>Analista, paulista e loira (mas nada burra).</td>
-						</tr>
-					</table>
-				</span>
+		<div class="row">
+	 		<div class="span12">
+	 			<div id="legend">
+					<h2><b>Painel de Controle do Projeto</b></h2><br/>
+				</div>
+				<table class="table">
+					<tr>
+						<th>Nome do Projeto</th>
+						<td colspan="2">Projeto Casa na Árvore</td>
+					</tr>
+				  	<tr>
+				   		<th rowspan="5" width=300px height=150px><img src="./img/work.png"></th>
+				    	<th width=200px>Valor</th>
+				    	<td>R$ 500,00</td>
+				  	</tr>
+				  	<tr>
+					    <th width=200px>Horas previstas</th>
+					    <td>12</td>
+					 </tr>
+					 <tr>
+				    	<th width=200px>Data de conclusão</th>
+				    	<td>01/01/2000</td>
+				 	 </tr>
+				 	 <tr>
+					    <th width=200px>Nível</th>
+					    <td>Intermediário</td>
+					 </tr>
+					 <tr>
+				    	<th width=200px>Prioridade</th>
+				    	<td>Baixa</td>
+				 	 </tr>
+				  	<tr>
+				    	<th colspan="3">Descrição</t>
+				  	</tr>
+				  	<tr>
+				    	<td colspan="3">A Casa da árvore é construída sobre o tronco e galhos de uma ou mais árvores, são feitas de madeira ou de outros materiais leves. Podem ser utilizadas como moradia ou para a diversão das crianças. É muito comum em países como os Estados Unidos.</td>
+				  	</tr>
+				  	<tr>
+				   		<th colspan="3">Categoria</th>
+				  	</tr>
+				  	<tr>
+				    	<td colspan="3">Categoria</td>
+				 	</tr>
+				  	<tr>
+				    	<th colspan="3">Requisitos</th>
+				  	</tr>
+				  	<tr>
+				    	<td colspan="3">Requisitos</td>
+				  	</tr>
+				</table>
+				
+				
+				<table class="table" ng-repeat="projeto in projetoList | filter:filtro >
+					<tr>
+						<th col="100">Nome do profissional</th>
+						<th>Ranking</th>
+						<th>Projetos Concluídos</th>
+						<th>Data de registro</th>
+						<th>Aprovar</th>
+					</tr>
+				
+					<tr>
+						<td>{{projeto.nome}}</td>
+						<td>{{projeto.raking}}</td>
+						<td>{{projeto.projConcluido}} </td>
+						<td>{{projeto.createdOn}}</td>
+						<td><button type="button" class="btn btn-primary">Aprovar</button></td>
+					</tr>
+				</table>
+				
+				<table class="table">
+					<tr>
+						<th col="100">Profissional aprovado</th>
+						<th>Avaliação</th>
+					</tr>
+				
+					<tr>
+						<td>Fulano de Tal</td>
+						<td>
+							<!-- Código de avaliação por estrelinhas -->
+							<div class="starRating">
+						        <input id="rating5" type="radio" name="rating" value="5">
+						        <label for="rating5"></label>
+						        <input id="rating4" type="radio" name="rating" value="4">
+						        <label for="rating4"></label>
+						        <input id="rating3" type="radio" name="rating" value="3">
+						        <label for="rating3"></label>
+						        <input id="rating2" type="radio" name="rating" value="2">
+						        <label for="rating2"></label>
+						        <input id="rating1" type="radio" name="rating" value="1">
+						        <label for="rating1"></label>
+							</div>
+						</td>
+					</tr>
+				</table>
+				
 			</div>
-		</div>
+		</div>	
 	</div>
-	 
+	 	 
 	<footer>
 		<div class="container">
 			<div class="row">

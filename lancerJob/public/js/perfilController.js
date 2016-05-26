@@ -10,7 +10,7 @@ angular.module("angularApp").controller("perfilController",function($scope,$http
 		$scope.perfilr="";
 		$scope.habilidade="";
 		$scope.areaInteresse="";
-		
+		$scope.prof="";
 	
 		$scope.limpar = function(){
 		$scope.nome="";
@@ -21,10 +21,9 @@ angular.module("angularApp").controller("perfilController",function($scope,$http
 		$scope.areaInteresse="";
 
 	};
-	$scope.adicionar =function(){
-		var setperfil = {iduser:$scope.iduser,
-					   _id:$scope._id};
-		$http.put("/inserirPerfil",setperfil,{
+	$scope.profissionalList =function(){
+		var setperfil ={_id: $scope.id, nome:$scope.nome,especialidade:$scope.especialidade,resumoProfissional:$scope.resumoProfissional,perfil:$scope.perfil,habilidades:$scope.habilidades,areaInteresse:$scope.areaInteresse};//PEGA O VALOR DO CAMPO
+		$http.put("/inserirPerfil/"+$scope.iduser, setperfil,{
 			headers:{'Content-Type':'application/json'}
 		})
 		.then(
@@ -64,7 +63,7 @@ angular.module("angularApp").controller("perfilController",function($scope,$http
 				
 	};
 	
-	$scope.profissionalList = function(){//ADICIONA PROFISSIONAL
+	/*$scope.profissionalList = function(){//ADICIONA PROFISSIONAL
 		
 		if($scope.validar() != false){
 		var prof = {_id: $scope.id, nome:$scope.nome,especialidade:$scope.especialidade,resumoProfissional:$scope.resumoProfissional,perfil:$scope.perfil,habilidades:$scope.habilidades,areaInteresse:$scope.areaInteresse};//PEGA O VALOR DO CAMPO
@@ -76,7 +75,6 @@ angular.module("angularApp").controller("perfilController",function($scope,$http
 					
 					
 					$scope.adicionar();
-					$scope.limpar();
 					alert("Perfil inserido com Sucesso!");
 
 				},
@@ -89,5 +87,5 @@ angular.module("angularApp").controller("perfilController",function($scope,$http
 	};
 	
 		
-	
+	*/
 });

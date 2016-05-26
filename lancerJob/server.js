@@ -125,8 +125,8 @@ app.get("/listarPerfil", function(req,res){
 	});
 });
 
-app.put('/inserirPerfil', function (req, res) {	
-	perfilServiceInstance.addperfilCadService(req.body, function(response){
+app.put('/inserirPerfil/:id', function (req, res) {	
+	perfilServiceInstance.addperfilCadService(req, function(response){
 	res.send(response);
 }, function(err){
 	res.send(err);

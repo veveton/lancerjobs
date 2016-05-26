@@ -26,6 +26,41 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
 	<!-- Script to Activate the Carousel -->
+    <script>
+    $('.carousel').carousel({
+        interval: 3000 //changes the speed
+    })
+    </script>
+    
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+	<script type="text/javascript">
+   		$(function() {    		
+			$('input[type=submit]').click(function() {
+				$('p').html('<span class="stars">'+parseFloat($('input[name=amount]').val())+'</span>');
+				$('span.stars').stars();
+			});    		
+			$('input[type=submit]').click();
+		});
+
+		$.fn.stars = function() {
+			return $(this).each(function() {
+				$(this).html($('<span />').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 16));
+			});
+		}
+	</script>
+	<style type="text/css">
+		span.stars, span.stars span {
+			display: block;
+			background: url(http://www.ulmanen.fi/stuff/stars.png) 0 -16px repeat-x;
+			width: 80px;
+			height: 16px;
+		}
+	
+		span.stars span {
+			background-position: 0 0;
+		}
+	</style>
+    
 </head>
 
 <body ng-controller="angularController">
@@ -33,14 +68,8 @@
 	<div id="header-row">
 		<div class="container">
 			<div class="row">
-				<div class="span3">
-					<a class="brand" href="index.html"><img src="./img/lancerjobs_logo_01.png"></a>
-				</div>
-			</div>
-		</div>
-		<div class="container">
-			<div class="row">
 	 			<div class="span12">
+	 				<a class="brand" href="index.html"><img src="./img/banner_top.png"></a>
 					<div class="navbar  pull-right">
 						<div class="navbar-inner">
 							<a data-target=".navbar-responsive-collapse" data-toggle="collapse" class="btn btn-navbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a>
@@ -51,14 +80,14 @@
 									<!-- Menu -->
 									<li class="active"><a href="index.html">Página Inicial</a></li>
 									<li class="dropdown">
-										<a href="http://shapebootstrap.net/demo/html/fornax/about.html" class="dropdown-toggle" data-toggle="dropdown">Sobre Nós <b class="caret"></b></a>
+										<a href="index.html" class="dropdown-toggle" data-toggle="dropdown">Sobre Nós <b class="caret"></b></a>
 										<ul class="dropdown-menu">
-											<li><a href="#">Empresa</a></li>
-											<li><a href="#">Equipe</a></li>
-											<li><a href="#">...</a></li>
+											<li><a href="sobre_empresa.html">Empresa</a></li>
+											<li><a href="sobre_equipe.html">Equipe</a></li>
+											<li><a href="mailto:contato@lancerjobs.com">...</a></li>
 										</ul>
 									</li>
-									<li><a href="#">Contato</a></li>
+									<li><a href="mailto:contato@lancerjobs.com">Contato</a></li>
 									
 									<!-- Login -->
 									<li>
@@ -85,46 +114,29 @@
 	</div>
 	 
 	<div class="container">
-	 
-		<div class="row feature-box">
-			<div class="span12 cnt-title">
-				<h1>Sobre a Equipe dos Primos</i></h1><br/>
-				<span>
-					<table class="table">
-						<tr>
-							<td rowspan="2"><img src="./img/equipe/surubim.png" width=150px height=100px></td>
-							<th>Surubim</th>
-						</tr>
-						<tr>
-							<td>Gerente de projeto e jogador de futboi.</td>
-						</tr>
-						<tr>
-							<td rowspan="2"><img src="./img/equipe/marry.png" width=150px height=100px></td>
-							<th>Marry</th>
-						</tr>
-						<tr>
-							<td>Desenvolvedora e jogadora de CS nas horas vagas (não mais tão vagas assim).</td>
-						</tr>
-						<tr>
-							<td rowspan="2"><img src="./img/equipe/keiko.jpg" width=150px height=100px></td>
-							<th>Keiko</th>
-						</tr>
-						<tr>
-							<td>Designer com tecnologia japonesa.</td>
-						</tr>
-						<tr>
-							<td rowspan="2"><img src="./img/equipe/priscila.jpg" width=150px height=100px></td>
-							<th>Priscila</th>
-						</tr>
-						<tr>
-							<td>Analista, paulista e loira (mas nada burra).</td>
-						</tr>
-					</table>
-				</span>
+		<div class="span6">
+			
+			<h2>Teste da estrelinha (avaliação)</h2>
+			<div class="starRating">
+		        <input id="rating5" type="radio" name="rating" value="5">
+		        <label for="rating5"></label>
+		        <input id="rating4" type="radio" name="rating" value="4">
+		        <label for="rating4"></label>
+		        <input id="rating3" type="radio" name="rating" value="3">
+		        <label for="rating3"></label>
+		        <input id="rating2" type="radio" name="rating" value="2">
+		        <label for="rating2"></label>
+		        <input id="rating1" type="radio" name="rating" value="1">
+		        <label for="rating1"></label>
 			</div>
+			
+			<input type="text" name="amount" value="2.53" />
+			<input type="submit" value="update">
+			<p><span class="starRating">2</span></p>
+
 		</div>
 	</div>
-	 
+	 	 
 	<footer>
 		<div class="container">
 			<div class="row">
