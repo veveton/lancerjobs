@@ -9,12 +9,12 @@
 
 
  
-<link href="./ShapeBootstrap Clean Template_files/bootstrap.css" rel="stylesheet">
-<link href="./ShapeBootstrap Clean Template_files/bootstrap-responsive.css" rel="stylesheet">
-<link href="./ShapeBootstrap Clean Template_files/style.css" rel="stylesheet">
-<link href="css/full-slider.css" rel="stylesheet">
+<link href="./css/bootstrap.css" rel="stylesheet">
+<link href="./css/bootstrap-responsive.css" rel="stylesheet">
+<link href="./css/style.css" rel="stylesheet">
+<link href="./css/full-slider.css" rel="stylesheet">
  
-<link href="./ShapeBootstrap Clean Template_files/css" rel="stylesheet" type="text/css">
+<link href="./css/css" rel="stylesheet" type="text/css">
  
 <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -46,7 +46,7 @@
 <div class="container">
 	<div class="row">
 		<div class="span3">
-			<a class="brand" href="#"><img src="lancerjobs_logo_01.png"></a>
+		<a class="brand" href="/"><img src="./img/lancerjobs_logo_01.png"></a>
 		</div>
 	</div>
 </div>
@@ -110,27 +110,27 @@
 			</div>
 			
 			<div class="control-group">
-				<label class="control-label" for="nome_projeto">Nome do Projeto: </label>
+				<label class="control-label" ng-model:"nomeproj" for="nome_projeto">Nome do Projeto: </label>
 				<div class="controls"><input type="text" id="nome_projeto" name="nome_projeto" placeholder="Nome do projeto" class="input-xlarge"></div>
 			</div>
 			<div class="control-group">
-				<label class="control-label" for="horas">Horas Previstas: </label>
+				<label class="control-label" ng-model:"horas" for="horas">Horas Previstas: </label>
 				<div class="controls"><input type="number" id="horas" name="horas" placeholder="Horas previstas de trabalho" class="input-xlarge"></div>
 			</div>
 			<div class="control-group">
-				<label class="control-label" for="data_termino">Data prevista de término: </label>
+				<label class="control-label" ng-model:"prazofinal" for="data_termino">Data prevista de término: </label>
 				<div class="controls"><input type="date" format="dd/MM/yyyy" id="data_termino" name="data_termino" placeholder="" class="input-xlarge"></div>
 			</div>
 			<div class="control-group">
-				<label class="control-label" for="categoria">Categoria: </label>
+				<label class="control-label" ng-model:"categoria" for="categoria">Categoria: </label>
 				<div class="controls"><input type="text" id="categoria" name="categoria" placeholder="Categoria" class="input-xlarge"></div>
 			</div>
 			<div class="control-group">
-				<label class="control-label" for="requisitos">Requisitos: </label>
+				<label class="control-label" ng-model:"requisitos" for="requisitos">Requisitos: </label>
 				<div class="controls"><input type="text" id="requisitos" name="requisitos" placeholder="Requisitos" class="input-xlarge"></div>
 			</div>
 			<div class="control-group">
-				<label class="control-label" for="nivel">Nível: </label>
+				<label class="control-label" ng-model:"nivel" for="nivel">Nível: </label>
 				<div class="controls">
 					<input type="radio" name="nivel" value="iniciante"> Iniciante </input>
 					<input type="radio" name="nivel" value="intermediario"> Intermediário </input>
@@ -138,7 +138,7 @@
 				</div>
 			</div>
 			<div class="control-group">
-				<label class="control-label" for="prioridade">Prioridade: </label>
+				<label class="control-label ng-model: "prioridade" for="prioridade">Prioridade: </label>
 				<div class="controls">
 					<input type="radio" name="prioridade" value="alta"> Alta </input>
 					<input type="radio" name="prioridade" value="baixa"> Baixa </input>
@@ -147,15 +147,15 @@
 			<div class="control-group">
 				<label class="control-label" for="descricao">Decsrição do projeto: </label>
 				<div class="controls">
-					<textarea type="text" id="descricao" name="descricao" placeholder="Descrição do projeto" class="input-xlarge" rows="10"></textarea>
+					<textarea type="text" id="descricao" name="descricao" ng-model="descricao" placeholder="Descrição do projeto" class="input-xlarge" rows="10"></textarea>
 				</div>
 			</div>
 			<div class="control-group">
 				<label class="control-label" for="valor">Valor do projeto: </label>
-				<div class="controls"><input type="text" id="valor" name="valor" placeholder="Valor (R$)" class="input-xlarge"></div>
+				<div class="controls"><input type="text" id="valor" name="valor" ng-model="valor" placeholder="Valor (R$)" class="input-xlarge"></div>
 			</div>
 			<div class="controls">
-				<button class="btn btn-primary">Cadastrar!</button>
+				<button class="btn btn-primary">Cadastrar! value="Registrar" ng-click="registrar()</button>
 			</div>
 			</div>
 		</fieldset>
