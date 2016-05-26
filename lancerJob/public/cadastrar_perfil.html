@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)http://shapebootstrap.net/demo/html/fornax/ -->
+<html lang="pt-br"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>LancerJobs.com</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+
+
+ 
+<link href="./ShapeBootstrap Clean Template_files/bootstrap.css" rel="stylesheet">
+<link href="./ShapeBootstrap Clean Template_files/bootstrap-responsive.css" rel="stylesheet">
+<link href="./ShapeBootstrap Clean Template_files/style.css" rel="stylesheet">
+<link href="css/full-slider.css" rel="stylesheet">
+ 
+<link href="./ShapeBootstrap Clean Template_files/css" rel="stylesheet" type="text/css">
+ 
+<!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+ 
+<link rel="shortcut icon" href="http://shapebootstrap.net/demo/html/fornax/ico/favicon.ico">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://shapebootstrap.net/demo/html/fornax/ico/apple-touch-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://shapebootstrap.net/demo/html/fornax/ico/apple-touch-icon-114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://shapebootstrap.net/demo/html/fornax/ico/apple-touch-icon-72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="http://shapebootstrap.net/demo/html/fornax/ico/apple-touch-icon-57-precomposed.png">
+ 
+<script src="./ShapeBootstrap Clean Template_files/jquery.js"></script>
+<script src="./ShapeBootstrap Clean Template_files/bootstrap.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<!-- Script to Activate the Carousel -->
+    <script>
+    $('.carousel').carousel({
+        interval: 3000 //changes the speed
+    })
+    </script>
+</head>
+
+<body>
+ 
+<div id="header-row">
+<div class="container">
+	<div class="row">
+		<div class="span3">
+			<a class="brand" href="#"><img src="lancerjobs_logo_01.png"></a>
+		</div>
+	</div>
+</div>
+<div class="container">
+<div class="row">
+ 
+<div class="span12">
+<div class="navbar  pull-right">
+<div class="navbar-inner">
+<a data-target=".navbar-responsive-collapse" data-toggle="collapse" class="btn btn-navbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a>
+<div class="nav-collapse collapse navbar-responsive-collapse">
+<ul class="nav">
+
+<!-- Menu -->
+<li class="active"><a href="outroteste.html">Página Inicial</a></li>
+<li class="dropdown">
+<a href="http://shapebootstrap.net/demo/html/fornax/about.html" class="dropdown-toggle" data-toggle="dropdown">Sobre Nós <b class="caret"></b></a>
+<ul class="dropdown-menu">
+<li><a href="#">Empresa</a></li>
+<li><a href="#">Equipe</a></li>
+<li><a href="#">...</a></li>
+</ul>
+</li>
+<li><a href="#">Contato</a></li>
+
+<!-- Login -->
+<li>
+<form id="signin" class="navbar-form navbar-right" role="form" method="POST">
+    <div class="input-group">
+		<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+		<input id="email" type="email" class="form-control" name="email" value="" placeholder="E-mail">                                        
+		<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+		<input id="password" type="password" class="form-control" name="password" value="" placeholder="Senha">
+		<button type="submit" class="btn btn-primary">Login</button>
+		<a href="register.html"><button type="button" class="btn btn-primary">Registre-se!</button></a>
+    </div>
+</li>
+</form>
+</li> <!-- Login -->
+
+</ul>
+</div>
+</div>
+</div>
+</div>
+ 
+</div>
+</div>
+</div>
+ 
+<div class="container">
+	<form class="form-horizontal" action='' method="POST">
+		<fieldset>
+			<div id="legend">
+				<h2><b>Cadastrar Perfil Profissional</b></h2><br/>
+			</div>
+			
+			<div class="control-group">
+				<label class="control-label" for="nome_user">Nome do Usuário: </label>
+				<div class="controls"><input type="text" id="nome" name="nome" placeholder=" nome que deseja ser exibir" class="input-xlarge" ng-model="nome"></div>
+			</div>
+			
+			<div class="control-group">
+				<label class="control-label" for="especialidade">Especialidade: </label>
+				<div class="controls"><input type="text" id="especialidade" name="especialidade" placeholder="O que você faz?" class="input-xlarge" ng-model="especialdiade"></div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="resumo">Resumo da Experiência Profissional: </label>
+				<div class="controls">
+					<textarea type="text" id="resumo" name="resumo" placeholder="Quais suas experiências profissionais?" class="input-xlarge" rows="20" ng-model="resumoProfissional"></textarea>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="perfil">Perfil: </label>
+				<div class="controls"><input type="text" id="perfil" name="perfil" placeholder="Fale um pouco sobre você." class="input-xlarge" ng-model="perfil"></div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="habilidades">Habilidades: </label>
+				<div class="controls"><input type="text" id="habilidades" name="habilidades" placeholder="Quais suas habilidades profissionais?" class="input-xlarge" ng-model="habilidades"></div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="area_interesse">Áreas de interesse: </label>
+				<div class="controls"><input type="text" id="area_interesse" name="area_interesse" placeholder="Quais as áreas que você quer atuar?" class="input-xlarge" ng-model="areaInteresse"></div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="foto">Foto: </label>
+				<div class="controls"><input type="file" id="foto" name="foto" placeholder="" class="input-xlarge"></div>
+			</div>
+			<div class="controls">
+				<button type="submit" class="btn btn-primary" ng-click="profissionalList()">Cadastrar!</button>
+			</div>
+			</div>
+		</fieldset>
+	</form>
+</div>
+
+ 
+<footer>
+<div class="container">
+<div class="row">
+<div class="span6">Copyright © 2013 Shapebootstrap | All Rights Reserved <br>
+<small>Aliquam tincidunt mauris eu risus.</small>
+</div>
+<div class="span6">
+<div class="social pull-right">
+<a href="http://shapebootstrap.net/demo/html/fornax/#"><img src="./ShapeBootstrap Clean Template_files/googleplus.png" alt=""></a>
+<a href="http://shapebootstrap.net/demo/html/fornax/#"><img src="./ShapeBootstrap Clean Template_files/dribbble.png" alt=""></a>
+<a href="http://shapebootstrap.net/demo/html/fornax/#"><img src="./ShapeBootstrap Clean Template_files/twitter.png" alt=""></a>
+<a href="http://shapebootstrap.net/demo/html/fornax/#"><img src="./ShapeBootstrap Clean Template_files/dribbble.png" alt=""></a>
+<a href="http://shapebootstrap.net/demo/html/fornax/#"><img src="./ShapeBootstrap Clean Template_files/rss.png" alt=""></a>
+</div>
+</div>
+</div>
+</div>
+</footer>
+ 
+
+</body>
+</html>
