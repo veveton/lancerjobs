@@ -1,1 +1,2 @@
-angular.module('angularApp',[]);
+// Módulo Angular JS
+angular.module("angularApp", []);

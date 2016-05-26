@@ -26,8 +26,8 @@ var avaliacaoServiceInstance = new AvaliacaoService(mongoose, appSchemaInstance)
 var PerfilService = require('./services/perfilService.js').PerfilService;
 var perfilServiceInstance = new PerfilService(mongoose, appSchemaInstance);
 
-var UsuarioService = require('./services/usuarioService.js').UsuarioService;
-var usuarioServiceInstance = new UsuarioService(mongoose, appSchemaInstance);
+var UserService = require('./services/userService.js').UserService;
+var usuarioServiceInstance = new UserService(mongoose, appSchemaInstance);
 
 var ProjetoService = require('./services/projetoService.js').ProjetoService;
 var projetoServiceInstance = new ProjetoService(mongoose, appSchemaInstance);

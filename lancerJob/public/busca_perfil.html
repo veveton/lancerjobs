@@ -11,8 +11,8 @@
 
 	<!-- Links do AngularJS -->
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-	<script src="./js/angularApp.js"></script>
-	<script src="./js/angularController.js"></script>
+	<script src="angularApp.js"></script>
+	<script src="angularController.js"></script>
  
 	<!-- Links do CSS -->
 	<link href="./css/bootstrap.css" rel="stylesheet">
@@ -33,13 +33,13 @@
     </script>
 </head>
 
-<body ng-controller="registroController">
+<body ng-controller="angularController">
  
-<div id="header-row">
+	<div id="header-row">
 		<div class="container">
 			<div class="row">
 				<div class="span3">
-					<a class="brand" href="index.html"><img src="./img/lancerjobs_logo_01.png"></a>
+					<a class="brand" href="index.html"><img src="lancerjobs_logo_01.png"></a>
 				</div>
 			</div>
 		</div>
@@ -88,41 +88,77 @@
 			</div>
 		</div>
 	</div>
- 
+	 
 	<div class="container">
+	
 		<form class="form-horizontal" action='' method="POST">
 			<fieldset>
 				<div id="legend">
-					<h2><b>Registro de Usuário</b></h2><br/>
+					<h2><b>Busca de Perfis Profissionais</b></h2><br/>
 				</div>
 				<div class="control-group">
-					<label class="control-label" for="nome">Nome: </label>
-					<div class="controls"><input  type="text" ng-model="nome" class="input-xlarge"></div>
+					<label class="control-label" for="busca_user">Pesquisar por: </label>
+					<div class="controls"><input type="text" id="busca_user" name="busca_user" placeholder="Palavras-chave da busca" class="input-xlarge"></div>
 				</div>
 				<div class="control-group">
-					<label class="control-label" for="CPF">CPF ou CNPJ: </label>
-					<div class="controls"><input  type="text" ng-model="cpfCnpj" class="input-xlarge"></div>
-				</div>
-				<div class="control-group">
-					<label class="control-label" for="email">E-mail: </label>
-					<div class="controls"><input  type="text" ng-model="email"  class="input-xlarge"></div>
-				</div>
-				<div class="control-group">
-					<label class="control-label" for="senha">Senha: </label>
-					<div class="controls"><input  type="text" ng-model="senha"  class="input-xlarge"></div>
-				</div>
-				<div class="control-group">
-					<label class="control-label" for="senha_conf">Confirmar senha: </label>
-					<div class="controls"><input  type="text" ng-model="confSenha" class="input-xlarge"></div>
+					<label class="control-label" for="opcao_ord_user">Ordenar por: </label>
+					<div class="controls">
+						<select name="opcao_ord_user">
+							<option value="">--Selecionar--</option>
+						  	<option value="nome">Nome</option>
+						  	<option value="ranking">Ranking</option>
+						  	<option value="projconc">Projetos Concluídos</option>
+						</select>
+					</div>
 				</div>
 				<div class="control-group"><div class="controls">
-					<input  class="btn btn-primary"  type="button" value="Registrar" ng-click="registrar()"/>
+					<button type="submit" class="btn btn-primary" nome="busca">Pesquisar!</button>
 				</div>
 			</fieldset>
 		</form>
+	
+		<div class="row feature-box">
+			<div class="span12 cnt-title">
+				
+				<table class="table">
+					<tr>
+						<th col="50">ID do Perfil</th>
+						<th col="100">Nome do profissional</th>
+						<th>Ranking</th>
+						<th>Projetos Concluídos</th>
+						<th>Data de registro</th>
+						<th>Visualizar Perfil</th>
+					</tr>
+					<tr>
+						<td>U000001</td>
+						<td>Fulano de Tal</td>
+						<td>nota 5</td>
+						<td>23</td>
+						<td>25/05/2016</td>
+						<td><a href="perfil.html"><button type="button" class="btn btn-primary">Visualizar!</button></a></td>
+					</tr>
+					<tr>
+						<td>U023891</td>
+						<td>Pikachu</td>
+						<td>nota 3</td>
+						<td>10</td>
+						<td>01/01/2000</td>
+						<td><a href="perfil.html"><button type="button" class="btn btn-primary">Visualizar!</button></a></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td><a href="perfil.html"><button type="button" class="btn btn-primary">Visualizar!</button></a></td>
+					</tr>
+				</table>
+				
+			</div>
+		</div>
 	</div>
- 
- 
+	 	 
 	<footer>
 		<div class="container">
 			<div class="row">
