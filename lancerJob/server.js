@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-
+var session = require('express-session');
 app.use(bodyParser.json());
 
 app.use(express.static('public'));//SETAR PASTA INICIAL DO SISTEMA
@@ -27,7 +27,7 @@ var PerfilService = require('./services/perfilService.js').PerfilService;
 var perfilServiceInstance = new PerfilService(mongoose, appSchemaInstance);
 
 var UserService = require('./services/userService.js').UserService;
-var userServiceInstance = new UserService(mongoose, appSchemaInstance);
+var usuarioServiceInstance = new UserService(mongoose, appSchemaInstance);
 
 var ProjetoService = require('./services/projetoService.js').ProjetoService;
 var projetoServiceInstance = new ProjetoService(mongoose, appSchemaInstance);
@@ -50,25 +50,33 @@ var projetoServiceInstance = new ProjetoService(mongoose, appSchemaInstance);
 //=======
 
 //servicos
-//-----------------------CadastroService------------INI----------------
-app.put('/editarUser', function (req, res) {
-	cadastroServiceInstance.editarUser(req.body, function(response){
-	})
-})
+//----------------------Sessao-----------------------
+app.get('/sessaoAdicionar', function (req, res) {
+	req.session.usuario = {_id: 10, nome:"Victor Hugo"};
 	
+	res.send(req.session.usuario);
+});
+
+app.get('/sessaoConsultar', function (req, res) {
+	res.send(req.session.usuario);
+});
+
+//----------------------Sessao-----------------------
+//-----------------------CadastroService------------INI----------------
+
 
 
 app.get("/listarUser", function(req,res){
 	
-	userServiceInstance.listarUserService(req.body, function(response){
+	usuarioServiceInstance.listarCadastroService(req.body, function(response){
 		res.send(response);
 	}, function(err){
 		res.send(err);
 	});
 });
 
-app.post('/addUser', function (req, res) {
-	userServiceInstance.addUserService(req.body, function(response){
+app.post('/addCadastro', function (req, res) {
+	usuarioServiceInstance.addCadastroService(req.body, function(response){
 		res.send(response);
 	}, function(err){
 		res.send(err);
