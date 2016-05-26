@@ -1,8 +1,8 @@
-function CadastroService(mongoose, appSchema){
+function UserService(mongoose, appSchema){
 	
 	var Cadastro = mongoose.model("Cadastro", appSchema.cadastroSchema);	
 	
-	this.addCadastroService = function(p_cadastro, successCallback, errorCallback){
+	this.adduserService = function(p_cadastro, successCallback, errorCallback){
 		var cadastroSave = new Cadastro(p_cadastro);
 		cadastroSave.save(function (err, data){
 			if (err) errorCallback(err);
@@ -10,7 +10,7 @@ function CadastroService(mongoose, appSchema){
 			else successCallback(data);
 			});
 	}
-	this.listarCadastroService = function(successCallback, errorCallback){		
+	this.listarUserService = function(successCallback, errorCallback){		
 				Cadastro.find({}, function (err, data) {
 					if (err) errorCallback(err);
 					
@@ -21,4 +21,4 @@ function CadastroService(mongoose, appSchema){
 }
 			
 	
-module.exports.CadastroService = CadastroService;
+module.exports.UserService = UserService;

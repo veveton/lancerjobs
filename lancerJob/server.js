@@ -26,14 +26,14 @@ var avaliacaoServiceInstance = new AvaliacaoService(mongoose, appSchemaInstance)
 var PerfilService = require('./services/perfilService.js').PerfilService;
 var perfilServiceInstance = new PerfilService(mongoose, appSchemaInstance);
 
-var CadastroService = require('./services/cadastroService.js').CadastroService;
-var cadastroServiceInstance = new CadastroService(mongoose, appSchemaInstance);
+var UserService = require('./services/userService.js').UserService;
+var userServiceInstance = new UserService(mongoose, appSchemaInstance);
 
 var ProjetoService = require('./services/projetoService.js').ProjetoService;
 var projetoServiceInstance = new ProjetoService(mongoose, appSchemaInstance);
 
-var InscricaoService = require('./services/inscricaoService.js').InscricaoService;
-var inscricaoServiceInstance = new InscricaoService(mongoose, appSchemaInstance);
+//var InscricaoService = require('./services/inscricaoService.js').InscricaoService;
+//var inscricaoServiceInstance = new InscricaoService(mongoose, appSchemaInstance);
 
 //===SERVICES====
 
@@ -51,24 +51,24 @@ var inscricaoServiceInstance = new InscricaoService(mongoose, appSchemaInstance)
 
 //servicos
 //-----------------------CadastroService------------INI----------------
-app.put('/editarCadastro', function (req, res) {
-	cadastroServiceInstance.editarCadastro(req.body, function(response){
+app.put('/editarUser', function (req, res) {
+	cadastroServiceInstance.editarUser(req.body, function(response){
 	})
 })
 	
 
 
-app.get("/listarCadastro", function(req,res){
+app.get("/listarUser", function(req,res){
 	
-	cadastroServiceInstance.listarCadastroService(req.body, function(response){
+	userServiceInstance.listarUserService(req.body, function(response){
 		res.send(response);
 	}, function(err){
 		res.send(err);
 	});
 });
 
-app.post('/addCadastro', function (req, res) {
-	cadastroServiceInstance.addCadastroService(req.body, function(response){
+app.post('/addUser', function (req, res) {
+	userServiceInstance.addUserService(req.body, function(response){
 		res.send(response);
 	}, function(err){
 		res.send(err);
@@ -155,7 +155,7 @@ app.post('/addProjeto', function (req, res) {
 
 //----------------ProjetoService---- FIM-----------
 
-//----------------InscricaoService----INI-------------------
+/*----------------InscricaoService----INI-------------------
 
 
 app.get("/listarInscricao", function(req,res){
@@ -175,7 +175,7 @@ app.post('/addInscricao', function (req, res) {
 	});
 });
 
-
+*/
 //----------------InscricaoService----FIM-----------
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
