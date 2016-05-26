@@ -25,12 +25,6 @@
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
-	<!-- Script to Activate the Carousel -->
-    <script>
-    $('.carousel').carousel({
-        interval: 3000 //changes the speed
-    })
-    </script>
 </head>
 
 <body ng-controller="perfilController">
@@ -93,7 +87,7 @@
 		<div class="row">
 	 		<div class="span12">
 	 			<div id="legend">
-					<h2><b>Projeto</b></h2><br/>
+					<h2><b>Painel de Controle do Projeto</b></h2><br/>
 				</div>
 				<table class="table">
 					<tr>
@@ -141,13 +135,14 @@
 				  	</tr>
 				</table>
 				
+				
 				<table class="table" ng-repeat="projeto in projetoList | filter:filtro >
 					<tr>
 						<th col="100">Nome do profissional</th>
 						<th>Ranking</th>
 						<th>Projetos Concluídos</th>
 						<th>Data de registro</th>
-						<th>Visualizar Perfil</th>
+						<th>Aprovar</th>
 					</tr>
 				
 					<tr>
