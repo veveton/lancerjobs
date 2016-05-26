@@ -1,17 +1,13 @@
 angular.module("angularApp").controller("perfilController",function($scope,$http){
 	
 	$scope.limpar = function(){
-		$scope.idperfil = "";
-		$scope.idcadastro = "";
-		$scope.nomeprof = "";
-		$scope.especialidade = "";
-		$scope.ranking = "";
-		$scope.projconcluido = "";
-		$scope.dataregistro = "";
-		$scope.resumoprofissional = "";
-		$scope.habilidades = "";
-		$scope.areinteresse = "";
-		$scope.foto = "";
+		$scope.nome="";
+		$scope.especialidade="";
+		$scope.resumoProfissional="";
+		$scope.perfil="";
+		$scope.habilidades="":
+		areaInteresse="";
+
 	};
 	
 	
