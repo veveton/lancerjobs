@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-
+var session = require('express-session');
 app.use(bodyParser.json());
 
 app.use(express.static('public'));//SETAR PASTA INICIAL DO SISTEMA
@@ -26,14 +26,14 @@ var avaliacaoServiceInstance = new AvaliacaoService(mongoose, appSchemaInstance)
 var PerfilService = require('./services/perfilService.js').PerfilService;
 var perfilServiceInstance = new PerfilService(mongoose, appSchemaInstance);
 
-var CadastroService = require('./services/cadastroService.js').CadastroService;
-var cadastroServiceInstance = new CadastroService(mongoose, appSchemaInstance);
+var UserService = require('./services/userService.js').UserService;
+var usuarioServiceInstance = new UserService(mongoose, appSchemaInstance);
 
 var ProjetoService = require('./services/projetoService.js').ProjetoService;
 var projetoServiceInstance = new ProjetoService(mongoose, appSchemaInstance);
 
-var InscricaoService = require('./services/inscricaoService.js').InscricaoService;
-var inscricaoServiceInstance = new InscricaoService(mongoose, appSchemaInstance);
+//var InscricaoService = require('./services/inscricaoService.js').InscricaoService;
+//var inscricaoServiceInstance = new InscricaoService(mongoose, appSchemaInstance);
 
 //===SERVICES====
 
@@ -50,17 +50,25 @@ var inscricaoServiceInstance = new InscricaoService(mongoose, appSchemaInstance)
 //=======
 
 //servicos
+//----------------------Sessao-----------------------
+app.get('/sessaoAdicionar', function (req, res) {
+	req.session.usuario = {_id: 10, nome:"Victor Hugo"};
+	
+	res.send(req.session.usuario);
+});
+
+app.get('/sessaoConsultar', function (req, res) {
+	res.send(req.session.usuario);
+});
+
+//----------------------Sessao-----------------------
 //-----------------------CadastroService------------INI----------------
-app.put('/editarCadastro', function (req, res) {
-	cadastroServiceInstance.editarCadastro(req.body, function(response){
-	})
-})
-	
 
 
-app.get("/listarCadastro", function(req,res){
+
+app.get("/listarUser", function(req,res){
 	
-	cadastroServiceInstance.listarCadastroService(req.body, function(response){
+	usuarioServiceInstance.listarCadastroService(req.body, function(response){
 		res.send(response);
 	}, function(err){
 		res.send(err);
@@ -68,7 +76,7 @@ app.get("/listarCadastro", function(req,res){
 });
 
 app.post('/addCadastro', function (req, res) {
-	cadastroServiceInstance.addCadastroService(req.body, function(response){
+	usuarioServiceInstance.addCadastroService(req.body, function(response){
 		res.send(response);
 	}, function(err){
 		res.send(err);
@@ -155,7 +163,7 @@ app.post('/addProjeto', function (req, res) {
 
 //----------------ProjetoService---- FIM-----------
 
-//----------------InscricaoService----INI-------------------
+/*----------------InscricaoService----INI-------------------
 
 
 app.get("/listarInscricao", function(req,res){
@@ -175,7 +183,7 @@ app.post('/addInscricao', function (req, res) {
 	});
 });
 
-
+*/
 //----------------InscricaoService----FIM-----------
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
