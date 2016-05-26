@@ -1,9 +1,13 @@
 angular.module("angularApp").controller("perfilController",function($scope,$http){
+		$scope.iduser="57475811959e35a018cf877a";
+		$scope.setperfil="";
+		$scope._id="";
 		$scope.userList=[];
 		$scope.nome="";
 		$scope.especialidade="";
 		$scope.resumoProfissional="";
-		$scope.perfil="";
+		$scope.prof="";
+		$scope.perfilr="";
 		$scope.habilidade="";
 		$scope.areaInteresse="";
 		
@@ -12,12 +16,24 @@ angular.module("angularApp").controller("perfilController",function($scope,$http
 		$scope.nome="";
 		$scope.especialidade="";
 		$scope.resumoProfissional="";
-		$scope.perfil="";
+		$scope.perfilr="";
 		$scope.habilidades="";
 		$scope.areaInteresse="";
 
 	};
-		
+	$scope.adicionar =function(){
+		var setperfil = {iduser:$scope.iduser,
+					   _id:$scope._id};
+		$http.put("/inserirPerfil",setperfil,{
+			headers:{'Content-Type':'application/json'}
+		})
+		.then(
+				function(response){
+				alert(response.data);
+			}
+			);
+	}
+	
 	$scope.validar = function(){
 		if($scope.nome == ""){
 			alert("Insira o nome que deseja exibir no perfil!");
@@ -51,15 +67,17 @@ angular.module("angularApp").controller("perfilController",function($scope,$http
 	$scope.profissionalList = function(){//ADICIONA PROFISSIONAL
 		
 		if($scope.validar() != false){
-		var perfil = {nome:$scope.nome,especialidade:$scope.especialidade,resumoProfissional:$scope.resumoProfissional,perfil:$scope.perfil,habilidades:$scope.habilidades,areaInteresse:$scope.areaInteresse};//PEGA O VALOR DO CAMPO
-		$http.post("/salvaPerfil",perfil, {
+		var prof = {_id: $scope.id, nome:$scope.nome,especialidade:$scope.especialidade,resumoProfissional:$scope.resumoProfissional,perfil:$scope.perfil,habilidades:$scope.habilidades,areaInteresse:$scope.areaInteresse};//PEGA O VALOR DO CAMPO
+		$http.post("/salvaPerfil",prof, {
 			headers:{ 'Content-Type' : 'application/json' }
 		})
 		.then(
 				function(response){//CASO TRUE LIMPA E LISTA
-
+					
+					
+					$scope.adicionar();
 					$scope.limpar();
-					alert("Perfil inserido com Sucesso!")
+					alert("Perfil inserido com Sucesso!");
 
 				},
 				function(response){//CASO DE ERRO
@@ -70,6 +88,6 @@ angular.module("angularApp").controller("perfilController",function($scope,$http
 		}
 	};
 	
+		
 	
-
 });

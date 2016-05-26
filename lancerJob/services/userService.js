@@ -5,20 +5,20 @@ function UserService(mongoose, appSchema){
 	this.addUserService = function(p_cadastro, successCallback, errorCallback){
 		var cadastroSave = new Cadastro(p_cadastro);
 		cadastroSave.save(function (err, data){
-			if (err) errorCallback(err);
+			if (err){ errorCallback(err);}
 			
-			else successCallback(data);
+			else {successCallback(data);}
 			});
 	}
-	this.listarUserService = function(successCallback, errorCallback){		
+	this.listarUserService = function(p_cadastro,successCallback, errorCallback){		
 				Cadastro.find({}, function (err, data) {
-					if (err) errorCallback(err);
+					if (err){ errorCallback(err);}
 					
-					else successCallback(data);
+					else{successCallback(data);}
 
 				});	
 	}
-}
-			
+	
+};			
 	
 module.exports.UserService = UserService;

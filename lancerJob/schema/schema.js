@@ -47,7 +47,7 @@ function AppSchema(mongoose){
 		cpf: String,
 		email:String,
 		senha: String,
-		perfil: this.perfilSchema,
+		perfil:[this.perfilSchema],
 		projetosAnuciado:[this.projetoSchema],
 		projetosConcluidos:[this.projetoSchema],
 		createdOn: {type: Date, default: Date.now}

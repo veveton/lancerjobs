@@ -1,4 +1,5 @@
 angular.module("angularApp").controller("projetoController",function($scope,$http){
+	$scope.logado="";
 	$scope.nomeproj = "";
 	$scope.horas = "";
 	$scope.prazofinal = "";

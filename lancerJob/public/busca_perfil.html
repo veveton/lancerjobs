@@ -84,7 +84,7 @@
 	 
 	<div class="container">
 	
-		<form class="form-horizontal" action='' method="POST">
+		<form class="form-horizontal">
 			<fieldset>
 				<div id="legend">
 					<h2><b>Busca de Perfis Profissionais</b></h2><br/>
@@ -105,7 +105,7 @@
 					</div>
 				</div>
 				<div class="control-group"><div class="controls">
-					<button type="submit" class="btn btn-primary" nome="busca">Pesquisar!</button>
+					<button type="submit" class="btn btn-primary" nome="busca" ng-click="usercarrega()">Pesquisar!</button>
 				</div>
 			</fieldset>
 		</form>
@@ -113,22 +113,23 @@
 		<div class="row feature-box">
 			<div class="span12 cnt-title">
 				
-				<table class="table" ng-repeat="projeto in projetoList | filter:filtro >
+				<table class="table"  >
 					<tr>
-						<th col="100">Nome do profissional</th>
+						<th> Nome do profissional</th>
 						<th>Ranking</th>
 						<th>Projetos Concluídos</th>
 						<th>Data de registro</th>
 						<th>Visualizar Perfil</th>
 					</tr>
-				
+					<tbody ng-repeat="perfil in userList | filter:filtro">
 					<tr>
-						<td>{{projeto.nome}}</td>
-						<td>{{projeto.raking}}</td>
-						<td>{{projeto.projConcluido}} </td>
-						<td>{{projeto.createdOn}}</td>
+						<td>{{perfil.nome}}</td>
+						<td>{{perfil.raking}}</td>
+						<td>{{perfil.projConcluido}} </td>
+						<td>{{perfil.createdOn}}</td>
 						<td><a href="perfil.html"><button type="button" class="btn btn-primary">Visualizar!</button></a></td>
 					</tr>
+					</tbody>
 				</table>
 				
 			</div>

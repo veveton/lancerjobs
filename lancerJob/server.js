@@ -82,6 +82,8 @@ app.post('/addCadastro', function (req, res) {
 		res.send(err);
 	});
 });
+
+
 //-----------------------CadastroService------------FIM----------------
 
 //-----------------------AvaliacaoService------------INI---------------
@@ -122,6 +124,15 @@ app.get("/listarPerfil", function(req,res){
 		res.send(err);
 	});
 });
+
+app.put('/inserirPerfil', function (req, res) {	
+	perfilServiceInstance.addperfilCadService(req.body, function(response){
+	res.send(response);
+}, function(err){
+	res.send(err);
+});
+});
+
 
 //-----------------------PerfilService------------FIM------------------
 
