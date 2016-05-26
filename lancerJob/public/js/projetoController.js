@@ -45,6 +45,10 @@ $scope.validar = function(){
 		alert("Insira a descrição do projeto! ");
 		return false;
 	}
+	if($scope.valor == ""){
+		alert("Informe o valor do projeto! ");
+		return false;
+	}
 }
 
 $scope.registrar = function(){//ADICIONA PROJETO
@@ -101,7 +105,7 @@ $scope.listarUser = function(){
 	});
 	
 }
-$scope.listarUser = function();
+//$scope.listarUser = function()
 
 $scope.removerProjeto = function(id){
 		$http.delete("/removerProjeto/"+id) //eclipse nao reconhece delete
