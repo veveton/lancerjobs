@@ -32,7 +32,7 @@ $scope.registrar = function(){//ADICIONA PROJETO
 					$scope.descricao = "";
 					$scope.valor = "";
 
-					alert("Projeto inserido com Sucesso!")
+					alert("Projeto inserido com Sucesso!!")
 
 				},
 				function(response){//CASO DE ERRO
