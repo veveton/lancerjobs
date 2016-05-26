@@ -12,7 +12,7 @@
 	<!-- Links do AngularJS -->
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 	<script src="./js/angularApp.js"></script>
-	<script src="./js/angularController.js"></script>
+	<script src="./js/indexController.js"></script>
  
 	<!-- Links do CSS -->
 	<link href="./css/bootstrap.css" rel="stylesheet">
@@ -33,7 +33,7 @@
     </script>
 </head>
 
-<body ng-controller="angularController">
+<body ng-controller="inicioController">
  
 	<div id="header-row">
 		<div class="container">
@@ -70,10 +70,13 @@
 										<form id="signin" class="navbar-form navbar-right" role="form" method="POST">
 										    <div class="input-group">
 												<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-													<input id="email" type="email" class="form-control" name="email" value="" placeholder="E-mail">                                        
+												
+												<!-- <div ng-include="'myFile.htm'"></div> -->
+												
+													<input id="email" type="email" class="form-control" ng-model="email" name="email" value="" placeholder="E-mail">                                        
 													<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-													<input id="password" type="password" class="form-control" name="password" value="" placeholder="Senha">
-												<button type="submit" class="btn btn-primary" onClick="validarLogin()">Entrar</button>
+													<input id="password" type="password" class="form-control" ng-model="password" name="password" value="" placeholder="Senha">
+												<button type="button" class="btn btn-primary" ng-click="validarLogin()">Entrar</button>
 												<a href="register.html"><button type="button" class="btn btn-primary">Registre-se!</button></a>
 										    </div>
 										</form>
