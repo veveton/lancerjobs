@@ -1,8 +1,14 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+var session = require('express-session');
 
 app.use(bodyParser.json());
+
+app.use(session({ secret: 'mypass', 
+	saveUninitialized: false,
+	resave: false,				
+	cookie: { maxAge: 60000 }}));
 
 app.use(express.static('public'));//SETAR PASTA INICIAL DO SISTEMA
 
@@ -49,7 +55,18 @@ var inscricaoServiceInstance = new InscricaoService(mongoose, appSchemaInstance)
 		
 //=======
 
-//servicos
+//----------------------Sessao-----------------------
+app.get('/sessaoAdicionar', function (req, res) {
+	req.session.usuario = {_id: 10, nome:"Victor Hugo"};
+	
+	res.send(req.session.usuario);
+});
+
+app.get('/sessaoConsultar', function (req, res) {
+	res.send(req.session.usuario);
+});
+
+//----------------------Sessao-----------------------
 //-----------------------CadastroService------------INI----------------
 app.put('/editarCadastro', function (req, res) {
 	cadastroServiceInstance.editarCadastro(req.body, function(response){
