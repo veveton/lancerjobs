@@ -1,6 +1,6 @@
-function CadastroService(mongoose, appSchema){
+function UsuarioService(mongoose, appSchema){
 	
-	var Cadastro = mongoose.model("Cadastro", appSchema.cadastroSchema);	
+	var Cadastro = mongoose.model("Usuario", appSchema.userSchema);	
 	
 	this.addCadastroService = function(p_cadastro, successCallback, errorCallback){
 		var cadastroSave = new Cadastro(p_cadastro);
@@ -21,4 +21,4 @@ function CadastroService(mongoose, appSchema){
 }
 			
 	
-module.exports.CadastroService = CadastroService;
+module.exports.UsuarioService = UsuarioService;
