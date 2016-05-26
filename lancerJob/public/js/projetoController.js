@@ -1,4 +1,6 @@
 angular.module("angularApp").controller("projetoController",function($scope,$http){
+	$scope.projetoList=[];
+	$scope.userList=[];
 	$scope.nomeproj = "";
 	$scope.horas = "";
 	$scope.prazofinal = "";
@@ -11,27 +13,52 @@ angular.module("angularApp").controller("projetoController",function($scope,$htt
 	$scope.nomeUser= "";
 
 
+$scope.limpar = function(){
+	$scope.nomeproj = "";
+	$scope.horas = "";
+	$scope.prazofinal = "";
+	$scope.categoria = "";
+	$scope.requisitos = "";
+	$scope.nivel = "";
+	$scope.prioridade = "";
+	$scope.descricao = "";
+	$scope.valor = "";
+
+}
+
+$scope.validar = function(){
+	if($scope.nomeproj == ""){
+		alert("Insira o nome do projeto!");
+		return false;
+	}
+	
+	if($scope.horas == ""){
+		alert("Insira as horas Previstas");
+		return false;
+	}
+	
+	if($scope.prazofinal == ""){
+		alert("Insira a data prevista de término! ");
+		return false;
+	}
+	if($scope.descricao == ""){
+		alert("Insira a descrição do projeto! ");
+		return false;
+	}
+}
 
 $scope.registrar = function(){//ADICIONA PROJETO
 
-
-		var usuario = {nomeproj:$scope.nomeproj,horas:$scope.horas,prazofinal:$scope.prazofinal,categoria:$scope.categoria,requisitos:$scope.requisitos,nivel:$scope.nivel,prioridade:$scope.prioridade,descricao:$scope.descricao,valor:$scope.valor};//PEGA O VALOR DO CAMPO
-		$http.post("/addProjeto",usuario, {
+	if($scope.validar() != false){
+		var projeto = {nomeproj:$scope.nomeproj,horas:$scope.horas,prazofinal:$scope.prazofinal,categoria:$scope.categoria,requisitos:$scope.requisitos,nivel:$scope.nivel,prioridade:$scope.prioridade,descricao:$scope.descricao,valor:$scope.valor};//PEGA O VALOR DO CAMPO
+		$http.post("/addProjeto",projeto, {
 			headers:{ 'Content-Type' : 'application/json' }
 		})
 		.then(
 				function(response){//CASO TRUE LIMPA E LISTA
 
-					$scope.nomeproj = "";
-					$scope.horas = "";
-					$scope.prazofinal = "";
-					$scope.categoria = "";
-					$scope.requisitos = "";
-					$scope.nivel = "";
-					$scope.prioridade = "";
-					$scope.descricao = "";
-					$scope.valor = "";
-
+					
+					$scope.limpar();
 					alert("Projeto inserido com Sucesso!!")
 
 				},
@@ -40,8 +67,8 @@ $scope.registrar = function(){//ADICIONA PROJETO
 				}
 		);
 		/**/
-
-	};
+	}
+};
 	
 $scope.listarProjeto = function(){//ADICIONA PROJETO
 
@@ -51,10 +78,10 @@ $scope.listarProjeto = function(){//ADICIONA PROJETO
 		url:'/listarProjeto'
 	})
 	.then(function successCallback(response) {
-		if($scope.listaContato=response.data==""){
+		if($scope.projetoList=response.data==""){
 			alert("Nenhum projeto cadastrado!");
 		
-	}else{$scope.listaContato=response.data;}
+	}else{$scope.projetoList=response.data;}
 		
 	}, function errorCallback(response)	{
 		alert(response.data);
@@ -65,10 +92,10 @@ $scope.listarUser = function(){
 										//fazer chamada user
 	$http({
 		method:'GET',
-		url:'/'
+		url:'/listarUser'
 	})
 	.then(function successCallback(response) {
-		$scope.listaContato=response.data;
+		$scope.userList=response.data;
 	}, function errorCallback(response)	{
 		alert(response.data);
 	});
@@ -80,7 +107,7 @@ $scope.removerProjeto = function(id){
 		$http.delete("/removerProjeto/"+id) //eclipse nao reconhece delete
 		.then(
 			function(response){
-				$scope.carregarListaUsuarios();
+				$scope.listarProjeto();
 			},
 			function(response){
 				alert(response.data);
