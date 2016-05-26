@@ -2,7 +2,7 @@ function UserService(mongoose, appSchema){
 	
 	var Cadastro = mongoose.model("Cadastro", appSchema.userSchema);	
 	
-	this.adduserService = function(p_cadastro, successCallback, errorCallback){
+	this.addUserService = function(p_cadastro, successCallback, errorCallback){
 		var cadastroSave = new Cadastro(p_cadastro);
 		cadastroSave.save(function (err, data){
 			if (err) errorCallback(err);

@@ -68,7 +68,7 @@ app.get('/sessaoConsultar', function (req, res) {
 
 app.get("/listarUser", function(req,res){
 	
-	usuarioServiceInstance.listarCadastroService(req.body, function(response){
+	usuarioServiceInstance.listarUserService(req.body, function(response){
 		res.send(response);
 	}, function(err){
 		res.send(err);
@@ -76,7 +76,7 @@ app.get("/listarUser", function(req,res){
 });
 
 app.post('/addCadastro', function (req, res) {
-	usuarioServiceInstance.addCadastroService(req.body, function(response){
+	usuarioServiceInstance.addUserService(req.body, function(response){
 		res.send(response);
 	}, function(err){
 		res.send(err);

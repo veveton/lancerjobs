@@ -35,7 +35,7 @@ angular.module("angularApp").controller("perfilController",function($scope,$http
 		}
 	}
 	
-	$scope.carregar = function(){
+	$scope.usercarregar = function(){
 		$http({
 			method: 'GET',
 			url: '/listarUser'	
