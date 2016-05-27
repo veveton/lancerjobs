@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html lang="pt-br" ng-app="angularApp">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<!-- Ícone do site no navegador -->
+	<link rel="shortcut icon" href="./img/logo.png.ico" type="image/x-icon" />
+
+	<title>LancerJobs.com</title>
+
+	<!-- Links do AngularJS -->
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script src="./js/angularApp.js"></script>
+	<script src="./js/angularController.js"></script>
+ 
+	<!-- Links do CSS -->
+	<link href="./css/bootstrap.css" rel="stylesheet">
+	<link href="./css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="./css/style.css" rel="stylesheet">
+	<link href="./css/full-slider.css" rel="stylesheet">
+
+	<script src="./js/jquery.js"></script>
+	<script src="./js/bootstrap.min.js"></script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+	<!-- Script to Activate the Carousel -->
+</head>
+
+<body ng-controller="angularController">
+ 
+	<div id="header-row">
+		<div class="container">
+			<div class="row">
+				<div class="span3">
+					<a class="brand" href="index.html"><img src="./img/lancerjobs_logo_01.png"></a>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+	 			<div class="span12">
+					<div class="navbar  pull-right">
+						<div class="navbar-inner">
+							<a data-target=".navbar-responsive-collapse" data-toggle="collapse" class="btn btn-navbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a>
+							
+							<div class="nav-collapse collapse navbar-responsive-collapse">
+								<ul class="nav">
+	
+									<!-- Menu -->
+									<li class="active"><a href="index.html">Página Inicial</a></li>
+									<li class="dropdown">
+										<a href="http://shapebootstrap.net/demo/html/fornax/about.html" class="dropdown-toggle" data-toggle="dropdown">Sobre Nós <b class="caret"></b></a>
+										<ul class="dropdown-menu">
+											<li><a href="#">Empresa</a></li>
+											<li><a href="#">Equipe</a></li>
+											<li><a href="#">...</a></li>
+										</ul>
+									</li>
+									<li><a href="#">Contato</a></li>
+									
+									<!-- Login -->
+									<li>
+										<form id="signin" class="navbar-form navbar-right" role="form" method="POST">
+										    <div class="input-group">
+												<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+													<input id="email" type="email" class="form-control" name="email" value="" placeholder="E-mail">                                        
+													<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+													<input id="password" type="password" class="form-control" name="password" value="" placeholder="Senha">
+												<button type="submit" class="btn btn-primary" onClick="validarLogin()">Entrar</button>
+												<a href="register.html"><button type="button" class="btn btn-primary">Registre-se!</button></a>
+										    </div>
+										</form>
+									</li>
+									<!-- FIM Login -->
+	
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>			 
+			</div>
+		</div>
+	</div>
+	 
+	<div class="container">
+	 
+		<div class="row feature-box">
+			<div class="span12 cnt-title">
+				<h1>Sobre o <i>LancerJobs.com</i></h1>
+				<span>
+					<p>O <i>LancerJobs.com</i> é uma plataforma de comunicação entre usuários (pessoas físicas ou jurídicas) que buscam 
+					uma maneira rápida e objetiva de encontrar projetos de curto prazo e profissionais liberais.</p>
+				</span>
+				
+				<div class="hr-divider"></div>
+		
+				<h1>Para anunciar projetos</h1><br/>
+				<div class="span3">
+					<img src="./img/news.png">
+					<h2>Anuncie</h2>
+					<p>Anuncie seu projeto através da tela de cadastro de projeto e abra para concorrência.</p>
+				</div>
+				<div class="span3">
+					<img src="./img/contract.png">
+					<h2>Contrate</h2>
+					<p>Receba propostas para seu projeto e contrate o melhor profissional com as melhores condições.</p>
+				</div>
+				<div class="span3">
+					<img src="./img/analysis.png">
+					<h2>Avalie</h2>
+					<p>Ao concluir seu projeto, avalie o profissional e ajude outros projetos a contratarem os melhores.</p>
+				</div>
+				
+				<div class="hr-divider"></div>
+				
+				<h1>Para divulgar seu perfil</h1><br/>
+				<div class="span3">
+					<img src="./img/write.png">
+					<h2>Cadastre</h2>
+					<p>Cadastre seu perfil profissional, com as informações que você quer divulgar para comunidade.</p>
+				</div>
+				<div class="span3">
+					<img src="./img/working.png">
+					<h2>Trabalhe</h2>
+					<p>Concorra a jobs e seja contratado para trabalhar em projetos.</p>
+				</div>
+				<div class="span3">
+					<img src="./img/award.png">
+					<h2>Evolua</h2>
+					<p>Receba avaliação dos contratantes e construa sua carreira no <i>LancerJobs.com</i>.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	 
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="span6">Copyright © 2016 Equipe dos Primos | Todos os direitos reservados<br/>
+					<small>Accenture - Academia Javascript - Maio/2016</small>
+				</div>
+				<div class="span6">
+					<div class="social pull-right">
+						<a href="#" target="blank_"><img src="./img/email.png" alt=""></a> <!-- Criar página de formulário de contato -->
+						<a href="https://www.linkedin.com/" target="blank_"><img src="./img/linkedin.png" alt=""></a>
+						<a href="https://www.facebook.com/" target="blank_"><img src="./img/facebook.png" alt=""></a>
+						<a href="https://twitter.com/" target="blank_"><img src="./img/twitter.png" alt=""></a>
+						<a href="https://www.youtube.com/" target="blank_"><img src="./img/youtube.png" alt=""></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+ 
+</body>
+</html>

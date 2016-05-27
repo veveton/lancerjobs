@@ -1,0 +1,33 @@
+var usuarioSchema = new Schema({
+	nome:String,
+	email:String,
+	senha:String,
+	cpfCnpj:String,
+	createdOn: {type: Date, default: Date.now}
+});
+
+var projetoSchema = new Schema({
+	idEmpresa:String,
+	nome: String,
+	horas:String,
+	valor:double,
+	classificacao:String,
+	descricao:String,
+	
+	data termino:{type: Date}//AA MM DD
+	createdOn: {type: Date, default: Date.now}
+});
+
+var rankSchema = new Schema({
+	nomeFrelancer: String,
+	pontuacao:{},
+	
+	createdOn: {type: Date, default: Date.now}
+});
+
+var contatoProjetoSchema = new Schema({
+	idProjeto: String,
+	idUsuario:String,
+	
+	createdOn: {type: Date, default: Date.now}
+});

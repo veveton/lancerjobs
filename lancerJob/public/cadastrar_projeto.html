@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html lang="pt-br" ng-app="angularApp">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<!-- Ícone do site no navegador -->
+	<link rel="shortcut icon" href="./img/logo.png.ico" type="image/x-icon" />
+
+	<title>LancerJobs.com</title>
+
+	<!-- Links do AngularJS -->
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script src="./js/angularApp.js"></script>
+	<script src="./js/projetoController.js"></script>
+ 
+	<!-- Links do CSS -->
+	<link href="./css/bootstrap.css" rel="stylesheet">
+	<link href="./css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="./css/style.css" rel="stylesheet">
+	<link href="./css/full-slider.css" rel="stylesheet">
+
+	<script src="./js/jquery.js"></script>
+	<script src="./js/bootstrap.min.js"></script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+	
+</head>
+
+<body ng-controller="projetoController">
+ 
+	<div id="header-row">
+		<div class="container">
+			<div class="row">
+				<div class="span3">
+					<a class="brand" href="index.html"><img src="./img/lancerjobs_logo_01.png"></a>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+	 			<div class="span12">
+					<div class="navbar  pull-right">
+						<div class="navbar-inner">
+							<a data-target=".navbar-responsive-collapse" data-toggle="collapse" class="btn btn-navbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a>
+							
+							<div class="nav-collapse collapse navbar-responsive-collapse">
+								<ul class="nav">
+	
+									<!-- Menu -->
+									<li class="active"><a href="index.html">Página Inicial</a></li>
+									<li class="dropdown">
+										<a href="http://shapebootstrap.net/demo/html/fornax/about.html" class="dropdown-toggle" data-toggle="dropdown">Sobre Nós <b class="caret"></b></a>
+										<ul class="dropdown-menu">
+											<li><a href="#">Empresa</a></li>
+											<li><a href="#">Equipe</a></li>
+											<li><a href="#">...</a></li>
+										</ul>
+									</li>
+									<li><a href="#">Contato</a></li>
+									
+									<!-- Login -->
+									<li>
+										<form id="signin" class="navbar-form navbar-right" role="form" method="POST">
+										    <div class="input-group">
+												<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+													<input id="email" type="email" class="form-control" name="email" value="" placeholder="E-mail">                                        
+													<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+													<input id="password" type="password" class="form-control" name="password" value="" placeholder="Senha">
+												<button type="submit" class="btn btn-primary" onClick="validarLogin()">Entrar</button>
+												<a href="register.html"><button type="button" class="btn btn-primary">Registre-se!</button></a>
+										    </div>
+										</form>
+									</li>
+									<!-- FIM Login -->
+	
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>			 
+			</div>
+		</div>
+	</div>
+	 
+	<div class="container">
+		<form class="form-horizontal" action='' method="POST">
+			<fieldset>
+				<div id="legend">
+					<h2><b>Cadastrar Projeto (Job)</b></h2><br/>
+				</div>
+				
+			
+				
+				<div class="control-group">
+					<label class="control-label" for="nome_projeto">Nome do Projeto: </label>
+					<div class="controls"><input type="text" id="nome_projeto" name="nome_projeto" ng-model="nomeproj" placeholder="Nome do projeto" class="input-xlarge"></div>
+				</div>
+				
+				<div class="control-group">
+					<label class="control-label" for="horas">Horas Previstas: </label>
+					<div class="controls"><input type="number" id="horas" name="horas" ng-model="horas" placeholder="Horas previstas de trabalho" class="input-xlarge"></div>
+				</div>
+				
+				<div class="control-group">
+					<label class="control-label" for="data_termino">Data prevista de término: </label>
+					<div class="controls"><input type="date" format="dd/MM/yyyy" id="data_termino" name="data_termino" ng-model="prazofinal" placeholder="" class="input-xlarge"></div>
+				</div>
+				
+				<div class="control-group">
+					<label class="control-label" for="categoria">Categoria: </label>
+					<div class="controls"><input type="text" id="categoria" name="categoria" ng-model="categoria" placeholder="Categoria" class="input-xlarge"></div>
+				</div>
+				
+				<div class="control-group">
+					<label class="control-label" for="requisitos">Requisitos: </label>
+					<div class="controls"><input type="text" id="requisitos" name="requisitos" ng-model="requisitos" placeholder="Requisitos" class="input-xlarge"></div>
+				</div>
+				
+				<div class="control-group">
+					<label class="control-label" for="nivel  ng-model="nivel" >Nível: </label>
+					<div class="controls">
+						<input type="radio" name="nivel" ng-model="nivel" value="iniciante"> Iniciante </input>
+						<input type="radio" name="nivel"  ng-model="nivel"value="intermediario"> Intermediário </input>
+						<input type="radio" name="nivel" ng-model="nivel" value="avancado"> Avançado </input>
+					</div>
+				</div>
+				
+				<div class="control-group">
+					<label class="control-label" for="prioridade ng-model="prioridade">Prioridade: </label>
+					<div class="controls">
+						<input type="radio" name="prioridade" ng-model="prioridade" value="alta"> Alta </input>
+						<input type="radio" name="prioridade" ng-model="prioridade" value="baixa"> Baixa </input>
+					</div>
+				</div>
+				
+				<div class="control-group">
+					<label class="control-label" for="descricao">Decsrição do projeto: </label>
+					<div class="controls">
+						<textarea type="text" id="descricao" name="descricao" ng-model="descricao"placeholder="Descrição do projeto" class="input-xlarge" rows="10"></textarea>
+					</div>
+				</div>
+				
+				<div class="control-group">
+					<label class="control-label" for="valor">Valor do projeto: </label>
+					<div class="controls"><input type="text" id="valor" ng-model="valor" name="valor" placeholder="Valor (R$)" class="input-xlarge"></div>
+				</div>
+				
+				<div class="controls">
+					<input  class="btn btn-primary"  type="button" value="Registrar" ng-click="registrar()"/>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+	 	 
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="span6">Copyright © 2016 Equipe dos Primos | Todos os direitos reservados<br/>
+					<small>Accenture - Academia Javascript - Maio/2016</small>
+				</div>
+				<div class="span6">
+					<div class="social pull-right">
+						<a href="#" target="blank_"><img src="./img/email.png" alt=""></a> <!-- Criar página de formulário de contato -->
+						<a href="https://www.linkedin.com/" target="blank_"><img src="./img/linkedin.png" alt=""></a>
+						<a href="https://www.facebook.com/" target="blank_"><img src="./img/facebook.png" alt=""></a>
+						<a href="https://twitter.com/" target="blank_"><img src="./img/twitter.png" alt=""></a>
+						<a href="https://www.youtube.com/" target="blank_"><img src="./img/youtube.png" alt=""></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+ 
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)http://shapebootstrap.net/demo/html/fornax/ -->
+<html lang="pt-br" ng-app="angularApp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<!-- Ícone do site no navegador -->
+<link rel="shortcut icon" href="./img/logo.png.ico" type="image/x-icon" />
+
+<title>LancerJobs.com</title>
+
+<!-- Links do AngularJS -->
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="angularApp.js"></script>
+<script src="angularController.js"></script>
+ 
+<link href="./ShapeBootstrap Clean Template_files/bootstrap.css" rel="stylesheet">
+<link href="./ShapeBootstrap Clean Template_files/bootstrap-responsive.css" rel="stylesheet">
+<link href="./ShapeBootstrap Clean Template_files/style.css" rel="stylesheet">
+<link href="css/full-slider.css" rel="stylesheet">
+ 
+<link href="./ShapeBootstrap Clean Template_files/css" rel="stylesheet" type="text/css">
+ 
+<!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+ 
+<link rel="shortcut icon" href="http://shapebootstrap.net/demo/html/fornax/ico/favicon.ico">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://shapebootstrap.net/demo/html/fornax/ico/apple-touch-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://shapebootstrap.net/demo/html/fornax/ico/apple-touch-icon-114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://shapebootstrap.net/demo/html/fornax/ico/apple-touch-icon-72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="http://shapebootstrap.net/demo/html/fornax/ico/apple-touch-icon-57-precomposed.png">
+ 
+<script src="./ShapeBootstrap Clean Template_files/jquery.js"></script>
+<script src="./ShapeBootstrap Clean Template_files/bootstrap.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="scriptsjava.js"></script>
+
+<!-- Script to Activate the Carousel -->
+    <script>
+    $('.carousel').carousel({
+        interval: 3000 //changes the speed
+    })
+    </script>
+
+</head>
+<body ng-controller="angularController">
+ 
+<div id="header-row">
+<div class="container">
+	<div class="row">
+		<div class="span3">
+			<a class="brand" href="#"><img src="lancerjobs_logo_01.png"></a>
+		</div>
+	</div>
+</div>
+<div class="container">
+<div class="row">
+ 
+<div class="span12">
+<div class="navbar  pull-right">
+<div class="navbar-inner">
+<a data-target=".navbar-responsive-collapse" data-toggle="collapse" class="btn btn-navbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a>
+<div class="nav-collapse collapse navbar-responsive-collapse">
+<ul class="nav">
+
+<!-- Menu -->
+<li class="active"><a href="outroteste.html">Página Inicial</a></li>
+<li class="dropdown">
+<a href="http://shapebootstrap.net/demo/html/fornax/about.html" class="dropdown-toggle" data-toggle="dropdown">Sobre Nós <b class="caret"></b></a>
+<ul class="dropdown-menu">
+<li><a href="#">Empresa</a></li>
+<li><a href="#">Equipe</a></li>
+<li><a href="#">...</a></li>
+</ul>
+</li>
+<li><a href="#">Contato</a></li>
+
+<!-- Login -->
+<li>
+<form id="signin" class="navbar-form navbar-right" role="form" method="POST" novalidate>
+    <div class="input-group">
+		<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+		<input id="email" type="email" class="form-control" name="email" value="" placeholder="Email Address">                                        
+		<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+		<input id="password" type="password" class="form-control" name="password" value="" placeholder="Password">
+		<button type="submit" class="btn btn-primary" onClick="validarLogin()">Login</button>
+		<a href="register.html"><button type="button" class="btn btn-primary">Registre-se!</button></a>
+    </div>
+</li>
+</form>
+</li> <!-- FIM Login -->
+
+</ul>
+</div>
+</div>
+</div>
+</div>
+ 
+</div>
+</div>
+</div>
+
+<div class="container">
+	
+	<div class="container-fluid">
+	<div class="row">
+		<table style="width:500px">
+  			<tr>
+    			<th rowspan="2"><img alt="Foto do perfil" src="./img/img-thing.jpg" width="150px" height="200px"></th>
+    			<th>Nome:</th>
+    			<td>Pikachu da Silva</td>
+  			</tr>
+  			<tr>
+   				<th>Ranking:</th>
+    			<td>
+					<div starRating ng-model="rating.rating" max="5"></div>
+				</td>
+ 			</tr>
+		</table>
+
+	</div>
+	<div class="row">
+			<dl>
+				<dt>
+					Description lists
+				</dt>
+				<dd>
+					A description list is perfect for defining terms.
+				</dd>
+				<dt>
+					Euismod
+				</dt>
+				<dd>
+					Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.
+				</dd>
+				<dd>
+					Donec id elit non mi porta gravida at eget metus.
+				</dd>
+				<dt>
+					Malesuada porta
+				</dt>
+				<dd>
+					Etiam porta sem malesuada magna mollis euismod.
+				</dd>
+				<dt>
+					Felis euismod semper eget lacinia
+				</dt>
+				<dd>
+					Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+				</dd>
+			</dl>
+	</div>
+</div>
+	
+</div>
+ 
+ 
+<footer>
+<div class="container">
+<div class="row">
+<div class="span6">Copyright © 2013 Shapebootstrap | All Rights Reserved <br>
+<small>Aliquam tincidunt mauris eu risus.</small>
+</div>
+<div class="span6">
+<div class="social pull-right">
+<a href="http://shapebootstrap.net/demo/html/fornax/#"><img src="./ShapeBootstrap Clean Template_files/googleplus.png" alt=""></a>
+<a href="http://shapebootstrap.net/demo/html/fornax/#"><img src="./ShapeBootstrap Clean Template_files/dribbble.png" alt=""></a>
+<a href="http://shapebootstrap.net/demo/html/fornax/#"><img src="./ShapeBootstrap Clean Template_files/twitter.png" alt=""></a>
+<a href="http://shapebootstrap.net/demo/html/fornax/#"><img src="./ShapeBootstrap Clean Template_files/dribbble.png" alt=""></a>
+<a href="http://shapebootstrap.net/demo/html/fornax/#"><img src="./ShapeBootstrap Clean Template_files/rss.png" alt=""></a>
+</div>
+</div>
+</div>
+</div>
+</footer>
+ 
+
+</body>
+</html>
