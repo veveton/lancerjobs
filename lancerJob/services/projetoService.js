@@ -33,6 +33,16 @@ function ProjetoService(mongoose, appSchema){
 			else successCallback(data);
 
 		});	
+		
+	this.nomeprojeto= function(p_projeto,successCallback, errorCallback){	
+			Cadastro.aggregate({ $group: {_id: { nomeproj: "$projeto.nomeproj", valor: "$projeto.valor", prazofinal: "$projeto.prazofinal", nivel:"$projeto.nivel" }}}, function (err, data) {
+			if (err) errorCallback(err);
+
+			else successCallback(data);
+
+			});	
+	}	
+		
 }
 
 			
