@@ -138,7 +138,7 @@ app.post('/salvaPerfil', function (req, res) {
 	});
 });
 
-app.get("/listarPerfil", function(req,res){
+app.get('/listarPerfil', function(req,res){
 	
 	perfilServiceInstance.listarPerfilService(req.body, function(response){
 		res.send(response);

@@ -3,6 +3,7 @@ angular.module("angularApp").controller("perfilController",function($scope,$http
 		$scope.setperfil="";
 		$scope._id="";
 		$scope.userList=[];
+		$scope.perfilList=[];
 		$scope.nome="";
 		$scope.especialidade="";
 		$scope.resumoProfissional="";
@@ -21,9 +22,24 @@ angular.module("angularApp").controller("perfilController",function($scope,$http
 		$scope.areaInteresse="";
 
 	};
+	
+	
+	$scope.userCarregar = function(){
+		$http({
+			method: 'GET',
+			url: '/listarUser'	
+		})
+		.then(function sucessCallback(response){
+			$scope.userList = response.data;
+		}, function errorCallback(response){
+			alert(response.data);
+		});
+				
+	};
+		
 	$scope.profissionalList =function(){
 		var setperfil ={_id: $scope.id, nome:$scope.nome,especialidade:$scope.especialidade,resumoProfissional:$scope.resumoProfissional,perfil:$scope.perfil,habilidades:$scope.habilidades,areaInteresse:$scope.areaInteresse};//PEGA O VALOR DO CAMPO
-		$http.put("/inserirPerfil/"+$scope.iduser, setperfil,{
+		$http.put('/inserirPerfil/'+$scope.iduser, setperfil,{
 			headers:{'Content-Type':'application/json'}
 		})
 		.then(
@@ -31,7 +47,9 @@ angular.module("angularApp").controller("perfilController",function($scope,$http
 				alert(response.data);
 			}
 			);
+		$scope.limpar();
 	}
+	
 	
 	$scope.validar = function(){
 		if($scope.nome == ""){
@@ -50,42 +68,7 @@ angular.module("angularApp").controller("perfilController",function($scope,$http
 		}
 	}
 	
-	$scope.usercarregar = function(){
-		$http({
-			method: 'GET',
-			url: '/listarUser'	
-		})
-		.then(function sucessCallback(response){
-			$scope.userList = response.data;
-		}, function errorCallback(response){
-			alert(response.data);
-		});
-				
-	};
 	
-	/*$scope.profissionalList = function(){//ADICIONA PROFISSIONAL
-		
-		if($scope.validar() != false){
-		var prof = {_id: $scope.id, nome:$scope.nome,especialidade:$scope.especialidade,resumoProfissional:$scope.resumoProfissional,perfil:$scope.perfil,habilidades:$scope.habilidades,areaInteresse:$scope.areaInteresse};//PEGA O VALOR DO CAMPO
-		$http.post("/salvaPerfil",prof, {
-			headers:{ 'Content-Type' : 'application/json' }
-		})
-		.then(
-				function(response){//CASO TRUE LIMPA E LISTA
-					
-					
-					$scope.adicionar();
-					alert("Perfil inserido com Sucesso!");
-
-				},
-				function(response){//CASO DE ERRO
-					alert(response.data);
-				}
-		);
+	$scope.userCarregar();
 	
-		}
-	};
-	
-		
-	*/
 });
