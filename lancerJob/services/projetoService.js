@@ -3,6 +3,22 @@ function ProjetoService(mongoose, appSchema){
 	var Projeto = mongoose.model("Projeto", appSchema.projetoSchema);	
 	var Cadastro = mongoose.model("Cadastro", appSchema.userSchema);
 	
+	this.listarProjetoService = function(p_projeto,successCallback, errorCallback){		
+		Cadastro.aggregate({
+			 $group: {
+				   _id: {
+				     projetoList: "$projeto",
+				   }
+				 }}, function (err, data) {
+			if (err) errorCallback(err);
+			
+			else successCallback(data);
+			
+			
+
+		});	
+	}
+	
 	this.addProjetoService = function(p_projeto, successCallback, errorCallback){
 	
 		var projetoSave = {_id:p_projeto.params.id};
@@ -16,14 +32,9 @@ function ProjetoService(mongoose, appSchema){
 			});
 		};
 	};
-	this.listarProjetoService = function(p_projeto,successCallback, errorCallback){		
-				Projeto.find({}, function (err, data) {
-					if (err) errorCallback(err);
-					
-					else successCallback(data);
+	
+	
 
-				});	
-	}
 	this.removerProjetoService= function(id,successCallback, errorCallback){		
 		
 		
@@ -35,15 +46,22 @@ function ProjetoService(mongoose, appSchema){
 		});	
 		
 	this.nomeprojeto= function(p_projeto,successCallback, errorCallback){	
-			Cadastro.aggregate({ $group: {_id: { nomeproj: "$projeto.nomeproj", valor: "$projeto.valor", prazofinal: "$projeto.prazofinal", nivel:"$projeto.nivel" }}}, function (err, data) {
+		Cadastro.aggregate({
+			 $group: {
+				   _id: {
+				     projetoList: "$projeto",
+				   }
+				 }}, function (err, data) {
 			if (err) errorCallback(err);
-
+			
 			else successCallback(data);
+			
+			
 
-			});	
-	}	
+		});	
+	}
 		
-}
+};
 
 			
 	

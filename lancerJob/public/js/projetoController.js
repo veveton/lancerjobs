@@ -88,17 +88,17 @@ $scope.listarProjeto = function(){//ADICIONA PROJETO
 		url:'/listarProjeto'
 	})
 	.then(function successCallback(response) {
-		$scope.projetoList = response.data[0]._id.projetoList;
-		if($scope.projetoList=response.data==""){
-			alert("Nenhum projeto cadastrado!");
+		$scope.projetoList = response.data[1]._id.projetoList;
+		//if($scope.projetoList=response.data==""){
+		//	alert("Nenhum projeto cadastrado!");
 		
-	}else{$scope.projetoList=response.data;}
+	//}else{$scope.projetoList=response.data;}
 		
 	}, function errorCallback(response)	{
 		alert(response.data);
 	});	
 	
-	};
+};
 	
 $scope.userCarregar = function(){
 		$http({

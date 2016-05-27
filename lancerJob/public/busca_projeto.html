@@ -60,7 +60,7 @@
 									
 									<!-- Login -->
 									<li>
-										<form id="signin" class="navbar-form navbar-right" role="form" method="POST">
+										<form id="signin" class="navbar-form navbar-right" role="form">
 										    <div class="input-group">
 												<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
 													<input id="email" type="email" class="form-control" name="email" value="" placeholder="E-mail">                                        
@@ -84,7 +84,7 @@
 	 
 	<div class="container">
 	
-		<form class="form-horizontal" action='' method="POST">
+		<form class="form-horizontal" >
 			<fieldset>
 				<div id="legend">
 					<h2><b>Busca de Projetos (Jobs)</b></h2><br/>
@@ -106,7 +106,7 @@
 					</div>
 				</div>
 				<div class="control-group"><div class="controls">
-					<button type="submit" class="btn btn-primary" nome="busca">Pesquisar!</button>
+					<button type="submit" class="btn btn-primary" nome="busca" ng-click="listarProjeto()">Pesquisar!</button>
 				</div>
 			</fieldset>
 		</form>
@@ -123,14 +123,13 @@
 						<th>Nível</th>
 						<th>Visualizar Projeto</th>
 					</tr>
-					<tbody ng-repeat="projeto in projetoList  | filter:pesquisa ">
+					<tbody ng-repeat="projeto in projetoList">
 					<tr>
-						<td>{{projeto.nome}}</td>
+						<td>{{projeto.nomeproj}}</td>
 						<td>{{projeto.valor}}</td>
 						<td>{{projeto.prazofinal}} </td>
 						<td>{{projeto.nivel}} </td> <!-- fazer o cont inscritos -->
-						{{projeto}}
-						{{projetoList}}
+						
 					<td><a href="projeto.html"><button type="button" class="btn btn-primary">Visualizar!</button></a></td>
 					
 					</tr>

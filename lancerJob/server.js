@@ -171,10 +171,7 @@ app.get('/listarNomePerfil', function(req,res){
 });
 
 
-
-
 //----------------CadastroService---- fim-----------
-
 
 
 //----------------ProjetoService----INI-----------
@@ -191,6 +188,7 @@ app.get("/listarProjeto", function(req,res){
 	
 	projetoServiceInstance.listarProjetoService(req.body, function(response){
 		res.send(response);
+		console.log(response)
 	}, function(err){
 		res.send(err);
 	});
