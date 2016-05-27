@@ -1,10 +1,22 @@
 angular.module("angularApp").controller("projetoController",function($scope,$http){
+<<<<<<< HEAD
 	$scope.iduser="574835680cb0845813aa1bf5";
+=======
+	$scope.iduser="574835680cb0845813aa1bf5";
+>>>>>>> branch 'master' of https://github.com/veveton/lancerjobs.git
 	$scope.logado="";
+<<<<<<< HEAD
 	$scope._id="";
+=======
+	$scope._id="";
+>>>>>>> branch 'master' of https://github.com/veveton/lancerjobs.git
 	$scope.projetoList=[];
 	$scope.userList=[];
+<<<<<<< HEAD
 	$scope.projeto="";
+=======
+	$scope.projeto="";
+>>>>>>> branch 'master' of https://github.com/veveton/lancerjobs.git
 	$scope.nomeproj = "";
 	$scope.horas = "";
 	$scope.prazofinal = "";

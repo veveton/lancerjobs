@@ -105,7 +105,7 @@
 					</div>
 				</div>
 				<div class="control-group"><div class="controls">
-					<button type="submit" class="btn btn-primary" nome="busca" ng-click="usercarrega()">Pesquisar!</button>
+					<button type="submit" class="btn btn-primary" nome="busca" ng-click="userCarregar()">Pesquisar!</button>
 				</div>
 			</fieldset>
 		</form>
@@ -121,7 +121,7 @@
 						<th>Data de registro</th>
 						<th>Visualizar Perfil</th>
 					</tr>
-					<tbody ng-repeat="perfil in userList | filter:filtro">
+					<tbody ng-repeat="perfil in userList">
 					<tr>
 						<td>{{perfil.nome}}</td>
 						<td>{{perfil.raking}}</td>
