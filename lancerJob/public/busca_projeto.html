@@ -12,7 +12,7 @@
 	<!-- Links do AngularJS -->
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 	<script src="./js/angularApp.js"></script>
-	<script src="./js/perfilController.js"></script>
+	<script src="./js/projetoController.js"></script>
  
 	<!-- Links do CSS -->
 	<link href="./css/bootstrap.css" rel="stylesheet">
@@ -26,7 +26,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 </head>
 
-<body ng-controller="perfilController">
+<body ng-controller="projetoController">
  
 	<div id="header-row">
 		<div class="container">
@@ -91,7 +91,7 @@
 				</div>
 				<div class="control-group">
 					<label class="control-label" for="busca_proj">Pesquisar por: </label>
-					<div class="controls"><input type="text" id="busca_proj" name="busca_proj" placeholder="Palavras-chave da busca" class="input-xlarge"></div>
+					<div class="controls"><input type="text" id="busca_proj" name="busca_proj" ng-model="pesquisa"  placeholder="Palavras-chave da busca" class="input-xlarge"></div>
 				</div>
 				<div class="control-group">
 					<label class="control-label" for="opcao_ord_proj">Ordenar por: </label>
@@ -116,36 +116,23 @@
 				
 				<table class="table">
 					<tr>
-						<th>ID do Projeto</th>
+						
 						<th>Nome do Projeto</th>
 						<th>Valor</th>
 						<th>Data de conclusão</th>
-						<th>Quantidade de Propostas</th>
+						<th>Nível</th>
 						<th>Visualizar Projeto</th>
 					</tr>
+					<tbody ng-repeat="projeto in projetoList  | filter:pesquisa ">
 					<tr>
-						<td>P000001</td>
-						<td>Projeto Casa na Árvore</td>
-						<td>R$ 500,00</td>
-						<td>25/05/2016</td>
-						<td>10</td>
-						<td><a href="projeto.html"><button type="button" class="btn btn-primary">Visualizar!</button></a></td>
-					</tr>
-					<tr>
-						<td>P023891</td>
-						<td>Projeto Pokemon Center</td>
-						<td>R$ 250,00</td>
-						<td>01/01/2000</td>
-						<td>2</td>
-						<td><a href="projeto.html"><button type="button" class="btn btn-primary">Visualizar!</button></a></td>
-					</tr>
-					<tr>
-						<td> </td>
-						<td> </td>
-						<td> </td>
-						<td> </td>
-						<td> </td>
-						<td><a href="projeto.html"><button type="button" class="btn btn-primary">Visualizar!</button></a></td>
+						<td>{{projeto.nome}}</td>
+						<td>{{projeto.valor}}</td>
+						<td>{{projeto.prazofinal}} </td>
+						<td>{{projeto.nivel}} </td> <!-- fazer o cont inscritos -->
+						{{projeto}}
+						{{projetoList}}
+					<td><a href="projeto.html"><button type="button" class="btn btn-primary">Visualizar!</button></a></td>
+					
 					</tr>
 				</table>
 				
