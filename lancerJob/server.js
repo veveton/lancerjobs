@@ -138,7 +138,7 @@ app.post('/salvaPerfil', function (req, res) {
 	});
 });
 
-app.get("/listarPerfil", function(req,res){
+app.get('/listarPerfil', function(req,res){
 	
 	perfilServiceInstance.listarPerfilService(req.body, function(response){
 		res.send(response);
@@ -187,7 +187,7 @@ app.get("/listarProjeto", function(req,res){
 });
 
 app.put('/addProjeto/:id', function (req, res) {
-	projetoServiceInstance.addProjetoService(req.body, function(response){
+	projetoServiceInstance.addProjetoService(req, function(response){
 		res.send(response);
 	}, function(err){
 		res.send(err);
