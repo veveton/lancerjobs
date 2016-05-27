@@ -1,10 +1,10 @@
 angular.module("angularApp").controller("projetoController",function($scope,$http){
-<<<<<<< HEAD
+	$scope.iduser="574835680cb0845813aa1bf5";
 	$scope.logado="";
-=======
+	$scope._id="";
 	$scope.projetoList=[];
 	$scope.userList=[];
->>>>>>> branch 'master' of https://github.com/veveton/lancerjobs.git
+	$scope.projeto="";
 	$scope.nomeproj = "";
 	$scope.horas = "";
 	$scope.prazofinal = "";
@@ -58,8 +58,8 @@ $scope.validar = function(){
 $scope.registrar = function(){//ADICIONA PROJETO
 
 	if($scope.validar() != false){
-		var projeto = {nomeproj:$scope.nomeproj,horas:$scope.horas,prazofinal:$scope.prazofinal,categoria:$scope.categoria,requisitos:$scope.requisitos,nivel:$scope.nivel,prioridade:$scope.prioridade,descricao:$scope.descricao,valor:$scope.valor};//PEGA O VALOR DO CAMPO
-		$http.post("/addProjeto",projeto, {
+		var projeto = {_id: $scope.id, nomeproj:$scope.nomeproj,horas:$scope.horas,prazofinal:$scope.prazofinal,categoria:$scope.categoria,requisitos:$scope.requisitos,nivel:$scope.nivel,prioridade:$scope.prioridade,descricao:$scope.descricao,valor:$scope.valor};//PEGA O VALOR DO CAMPO
+		$http.put("/addProjeto/"+$scope.iduser,projeto, {
 			headers:{ 'Content-Type' : 'application/json' }
 		})
 		.then(

@@ -1,4 +1,5 @@
 
+
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
@@ -187,7 +188,7 @@ app.get("/listarProjeto", function(req,res){
 });
 
 app.put('/addProjeto/:id', function (req, res) {
-	projetoServiceInstance.addProjetoService(req.body, function(response){
+	projetoServiceInstance.addProjetoService(req, function(response){
 		res.send(response);
 	}, function(err){
 		res.send(err);
