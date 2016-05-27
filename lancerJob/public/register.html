@@ -18,32 +18,20 @@
 	<link href="./css/bootstrap.css" rel="stylesheet">
 	<link href="./css/bootstrap-responsive.css" rel="stylesheet">
 	<link href="./css/style.css" rel="stylesheet">
-	<link href="./css/full-slider.css" rel="stylesheet">
 
 	<script src="./js/jquery.js"></script>
 	<script src="./js/bootstrap.min.js"></script>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-
-	<!-- Script to Activate the Carousel -->
-    <script>
-   
-    </script>
 </head>
 
 <body ng-controller="registroController">
  
-<div id="header-row">
-		<div class="container">
-			<div class="row">
-				<div class="span3">
-					<a class="brand" href="index.html"><img src="./img/lancerjobs_logo_01.png"></a>
-				</div>
-			</div>
-		</div>
+	<div id="header-row">
 		<div class="container">
 			<div class="row">
 	 			<div class="span12">
+	 				<img src="./img/banner_top.png">
 					<div class="navbar  pull-right">
 						<div class="navbar-inner">
 							<a data-target=".navbar-responsive-collapse" data-toggle="collapse" class="btn btn-navbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a>
@@ -54,30 +42,31 @@
 									<!-- Menu -->
 									<li class="active"><a href="index.html">Página Inicial</a></li>
 									<li class="dropdown">
-										<a href="http://shapebootstrap.net/demo/html/fornax/about.html" class="dropdown-toggle" data-toggle="dropdown">Sobre Nós <b class="caret"></b></a>
+										<a href="index.html" class="dropdown-toggle" data-toggle="dropdown">Sobre Nós <b class="caret"></b></a>
 										<ul class="dropdown-menu">
-											<li><a href="#">Empresa</a></li>
-											<li><a href="#">Equipe</a></li>
-											<li><a href="#">...</a></li>
+											<li><a href="sobre_empresa.html">Empresa</a></li>
+											<li><a href="sobre_equipe.html">Equipe</a></li>
 										</ul>
 									</li>
-									<li><a href="#">Contato</a></li>
-									
-									<!-- Login -->
-									<li>
-										<form id="signin" class="navbar-form navbar-right" role="form" method="POST">
-										    <div class="input-group">
-												<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-													<input id="email" type="email" class="form-control" name="email" value="" placeholder="E-mail">                                        
-													<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-													<input id="password" type="password" class="form-control" name="password" value="" placeholder="Senha">
-												<button type="submit" class="btn btn-primary" onClick="validarLogin()">Entrar</button>
-												<a href="register.html"><button type="button" class="btn btn-primary">Registre-se!</button></a>
-										    </div>
-										</form>
+									<li class="dropdown">
+										<a href="index.html" class="dropdown-toggle" data-toggle="dropdown">Opções <b class="caret"></b></a>
+										<ul class="dropdown-menu">
+											<li><a href="cadastrar_perfil.html">Cadastrar Perfil Profissional</a></li>
+											<li><a href="busca_perfil.html">Buscar Perfil Profissional</a></li>
+											<li><a href="cadastrar_projeto.html">Anunciar Projeto</a></li>
+											<li><a href="busca_projeto.html">Buscar Projeto</a></li>
+											<li><a href="painel_controle.html">Painel de Controle do Usuário</a></li>
+										</ul>
 									</li>
-									<!-- FIM Login -->
-	
+									<li><a href="mailto:contato@lancerjobs.com">Contato</a></li>
+
+									<li>
+										<a href="index.html"><b>Fazer login!</b></a>
+									</li>
+									<li>
+										<a href="register.html"><b>Registre-se!</b></a>
+									</li>
+
 								</ul>
 							</div>
 						</div>
@@ -98,20 +87,20 @@
 					<div class="controls"><input  type="text" ng-model="nome" class="input-xlarge"></div>
 				</div>
 				<div class="control-group">
-					<label class="control-label" for="CPF">CPF ou CNPJ: </label>
+					<label class="control-label" for="cpfCnpj">CPF ou CNPJ: </label>
 					<div class="controls"><input  type="text" ng-model="cpfCnpj" class="input-xlarge"></div>
 				</div>
 				<div class="control-group">
 					<label class="control-label" for="email">E-mail: </label>
-					<div class="controls"><input  type="text" ng-model="email"  class="input-xlarge"></div>
+					<div class="controls"><input  type="email" ng-model="email"  class="input-xlarge"></div>
 				</div>
 				<div class="control-group">
 					<label class="control-label" for="senha">Senha: </label>
-					<div class="controls"><input  type="text" ng-model="senha"  class="input-xlarge"></div>
+					<div class="controls"><input  type="password" ng-model="senha"  class="input-xlarge"></div>
 				</div>
 				<div class="control-group">
-					<label class="control-label" for="senha_conf">Confirmar senha: </label>
-					<div class="controls"><input  type="text" ng-model="confSenha" class="input-xlarge"></div>
+					<label class="control-label" for="confSenha">Confirmar senha: </label>
+					<div class="controls"><input  type="password" ng-model="confSenha" class="input-xlarge"></div>
 				</div>
 				<div class="control-group"><div class="controls">
 					<input  class="btn btn-primary"  type="button" value="Registrar" ng-click="registrar()"/>
