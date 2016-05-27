@@ -185,7 +185,7 @@ app.get("/listarProjeto", function(req,res){
 	});
 });
 
-app.post('/addProjeto', function (req, res) {
+app.put('/addProjeto/:id', function (req, res) {
 	projetoServiceInstance.addProjetoService(req.body, function(response){
 		res.send(response);
 	}, function(err){

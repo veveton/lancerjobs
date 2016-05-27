@@ -1,10 +1,11 @@
 angular.module("angularApp").controller("projetoController",function($scope,$http){
-<<<<<<< HEAD
+	$scope.iduser="5747a9bab70420981bd7b4c0";
 	$scope.logado="";
-=======
+	$scope.setprojeto="";
 	$scope.projetoList=[];
+	$scope._id="";
 	$scope.userList=[];
->>>>>>> branch 'master' of https://github.com/veveton/lancerjobs.git
+	
 	$scope.nomeproj = "";
 	$scope.horas = "";
 	$scope.prazofinal = "";
@@ -15,7 +16,7 @@ angular.module("angularApp").controller("projetoController",function($scope,$htt
 	$scope.descricao = "";
 	$scope.valor = "";
 	$scope.nomeUser= "";
-
+	
 
 $scope.limpar = function(){
 	$scope.nomeproj = "";
@@ -58,17 +59,16 @@ $scope.validar = function(){
 $scope.registrar = function(){//ADICIONA PROJETO
 
 	if($scope.validar() != false){
-		var projeto = {nomeproj:$scope.nomeproj,horas:$scope.horas,prazofinal:$scope.prazofinal,categoria:$scope.categoria,requisitos:$scope.requisitos,nivel:$scope.nivel,prioridade:$scope.prioridade,descricao:$scope.descricao,valor:$scope.valor};//PEGA O VALOR DO CAMPO
-		$http.post("/addProjeto",projeto, {
+		var setprojeto = {_id: $scope.id,nomeproj:$scope.nomeproj,horas:$scope.horas,prazofinal:$scope.prazofinal,categoria:$scope.categoria,requisitos:$scope.requisitos,nivel:$scope.nivel,prioridade:$scope.prioridade,descricao:$scope.descricao,valor:$scope.valor};//PEGA O VALOR DO CAMPO
+		$http.put("/addProjeto/"+$scope.iduser, setprojeto, {
 			headers:{ 'Content-Type' : 'application/json' }
 		})
 		.then(
-				function(response){//CASO TRUE LIMPA E LISTA
-
+				function(response){//CASO TRUE LIMPA E informa insecao 
 					
-					$scope.limpar();
+					
 					alert("Projeto inserido com Sucesso!!")
-
+					$scope.limpar();
 				},
 				function(response){//CASO DE ERRO
 					alert(response.data);
