@@ -7,6 +7,7 @@ angular.module("angularApp").controller("projetoController",function($scope,$htt
 	$scope.projeto="";
 	$scope.nomeproj = "";
 	$scope.horas = "";
+	$scope.qtdinscritos= "";
 	$scope.prazofinal = "";
 	$scope.categoria = "";
 	$scope.requisitos = "";
@@ -15,7 +16,8 @@ angular.module("angularApp").controller("projetoController",function($scope,$htt
 	$scope.descricao = "";
 	$scope.valor = "";
 	$scope.nomeUser= "";
-
+	$scope.projetosAnuciado=true;
+	$scope.projetosConcluidos=false;
 
 $scope.limpar = function(){
 	$scope.nomeproj = "";
@@ -58,7 +60,7 @@ $scope.validar = function(){
 $scope.registrar = function(){//ADICIONA PROJETO
 
 	if($scope.validar() != false){
-		var projeto = {_id: $scope.id, nomeproj:$scope.nomeproj,horas:$scope.horas,prazofinal:$scope.prazofinal,categoria:$scope.categoria,requisitos:$scope.requisitos,nivel:$scope.nivel,prioridade:$scope.prioridade,descricao:$scope.descricao,valor:$scope.valor};//PEGA O VALOR DO CAMPO
+		var projeto = {_id: $scope.id, nomeproj:$scope.nomeproj,horas:$scope.horas,prazofinal:$scope.prazofinal,categoria:$scope.categoria,requisitos:$scope.requisitos,nivel:$scope.nivel,prioridade:$scope.prioridade,descricao:$scope.descricao,valor:$scope.valor,projetosAnuciado:$scope.projetosAnuciado};//PEGA O VALOR DO CAMPO
 		$http.put("/addProjeto/"+$scope.iduser,projeto, {
 			headers:{ 'Content-Type' : 'application/json' }
 		})
@@ -86,6 +88,7 @@ $scope.listarProjeto = function(){//ADICIONA PROJETO
 		url:'/listarProjeto'
 	})
 	.then(function successCallback(response) {
+		$scope.projetoList = response.data[0]._id.projetoList;
 		if($scope.projetoList=response.data==""){
 			alert("Nenhum projeto cadastrado!");
 		
@@ -96,20 +99,21 @@ $scope.listarProjeto = function(){//ADICIONA PROJETO
 	});	
 	
 	};
-$scope.listarUser = function(){
-										//fazer chamada user
-	$http({
-		method:'GET',
-		url:'/listarUser'
-	})
-	.then(function successCallback(response) {
-		$scope.userList=response.data;
-	}, function errorCallback(response)	{
-		alert(response.data);
-	});
 	
-}
-//$scope.listarUser = function()
+$scope.userCarregar = function(){
+		$http({
+			method: 'GET',
+			url: '/listarUser'	
+		})
+		.then(function sucessCallback(response){
+			$scope.userList = response.data;
+		}, function errorCallback(response){
+			alert(response.data);
+		});
+				
+	};
+$scope.userCarregar();
+
 
 $scope.removerProjeto = function(id){
 		$http.delete("/removerProjeto/"+id) //eclipse nao reconhece delete
