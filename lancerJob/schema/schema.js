@@ -36,6 +36,8 @@ function AppSchema(mongoose){
 		descricao: String,
 		valor: String,
 		aprovadoStatus: Boolean,
+		projetosAnuciado:Boolean,
+		projetosConcluidos:Boolean,
 		inscritos:[this.perfilSchema],
 		proposta: String,
 		createdOn: {type: Date, default: Date.now}
@@ -48,8 +50,8 @@ function AppSchema(mongoose){
 		email:String,
 		senha: String,
 		perfil:[this.perfilSchema],
-		projetosAnuciado:[this.projetoSchema],
-		projetosConcluidos:[this.projetoSchema],
+		projeto:[this.projetoSchema],
+		
 		createdOn: {type: Date, default: Date.now}
 
 	});

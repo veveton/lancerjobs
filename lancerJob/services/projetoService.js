@@ -4,6 +4,7 @@ function ProjetoService(mongoose, appSchema){
 	
 	this.addProjetoService = function(p_projeto, successCallback, errorCallback){
 		var projetoSave = new Projeto(p_projeto);
+
 		projetoSave.save(function (err, data){
 			if (err) errorCallback(err);
 			

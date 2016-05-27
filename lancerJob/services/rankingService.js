@@ -34,18 +34,6 @@ function UserService(mongoose, appSchema){
 				});	
 	}
 	
-	this.rankingService = function(p_cadastro,successCallback, errorCallback){	
-		
-		
-		var query = {};		
-		Cadastro.find(query).exec (function (err, data) {
-					if (err) errorCallback(err);
-					
-					else successCallback(data);
-						
-				});	
-	}
-	
 	
 }
 			

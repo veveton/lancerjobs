@@ -16,8 +16,8 @@ angular.module("angularApp").controller("inicioController", function($scope, $ht
 					
 					$scope.email="";
 					$scope.password="";
-					alert("Loguin OK com Sucesso!")
-			
+					
+					alert(response.data);
 				},
 				function(response){//CASO DE ERRO
 					alert(response.data);
