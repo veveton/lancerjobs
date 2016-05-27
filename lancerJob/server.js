@@ -65,11 +65,11 @@ app.post('/sessaoAdicionar', function (req, res) {
 	console.log(req.body);
 	usuarioServiceInstance.loguinService(req.body, function(response){
 		
-		
+		if(response.length!=0){
 		req.session.usuario = response;
 		
-		res.send(req.session.usuario);
-	
+		res.send("Logado");
+	}else res.send("Login Incorreto")
 		
 	}, function(err){
 		res.send(err);
