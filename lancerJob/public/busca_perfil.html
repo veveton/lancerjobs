@@ -31,14 +31,8 @@
 	<div id="header-row">
 		<div class="container">
 			<div class="row">
-				<div class="span3">
-					<a class="brand" href="index.html"><img src="./img/lancerjobs_logo_01.png"></a>
-				</div>
-			</div>
-		</div>
-		<div class="container">
-			<div class="row">
 	 			<div class="span12">
+	 				<img src="./img/banner_top.png">
 					<div class="navbar  pull-right">
 						<div class="navbar-inner">
 							<a data-target=".navbar-responsive-collapse" data-toggle="collapse" class="btn btn-navbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a>
@@ -49,30 +43,31 @@
 									<!-- Menu -->
 									<li class="active"><a href="index.html">Página Inicial</a></li>
 									<li class="dropdown">
-										<a href="http://shapebootstrap.net/demo/html/fornax/about.html" class="dropdown-toggle" data-toggle="dropdown">Sobre Nós <b class="caret"></b></a>
+										<a href="index.html" class="dropdown-toggle" data-toggle="dropdown">Sobre Nós <b class="caret"></b></a>
 										<ul class="dropdown-menu">
-											<li><a href="#">Empresa</a></li>
-											<li><a href="#">Equipe</a></li>
-											<li><a href="#">...</a></li>
+											<li><a href="sobre_empresa.html">Empresa</a></li>
+											<li><a href="sobre_equipe.html">Equipe</a></li>
 										</ul>
 									</li>
-									<li><a href="#">Contato</a></li>
-									
-									<!-- Login -->
-									<li>
-										<form id="signin" class="navbar-form navbar-right" role="form" method="POST">
-										    <div class="input-group">
-												<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-													<input id="email" type="email" class="form-control" name="email" value="" placeholder="E-mail">                                        
-													<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-													<input id="password" type="password" class="form-control" name="password" value="" placeholder="Senha">
-												<button type="submit" class="btn btn-primary" onClick="validarLogin()">Entrar</button>
-												<a href="register.html"><button type="button" class="btn btn-primary">Registre-se!</button></a>
-										    </div>
-										</form>
+									<li class="dropdown">
+										<a href="index.html" class="dropdown-toggle" data-toggle="dropdown">Opções <b class="caret"></b></a>
+										<ul class="dropdown-menu">
+											<li><a href="cadastrar_perfil.html">Cadastrar Perfil Profissional</a></li>
+											<li><a href="busca_perfil.html">Buscar Perfil Profissional</a></li>
+											<li><a href="cadastrar_projeto.html">Anunciar Projeto</a></li>
+											<li><a href="busca_projeto.html">Buscar Projeto</a></li>
+											<li><a href="painel_controle.html">Painel de Controle do Usuário</a></li>
+										</ul>
 									</li>
-									<!-- FIM Login -->
-	
+									<li><a href="mailto:contato@lancerjobs.com">Contato</a></li>
+
+									<li>
+										<a href="index.html"><b>Fazer login!</b></a>
+									</li>
+									<li>
+										<a href="register.html"><b>Registre-se!</b></a>
+									</li>
+
 								</ul>
 							</div>
 						</div>
@@ -93,17 +88,7 @@
 					<label class="control-label" for="busca_user">Pesquisar por: </label>
 					<div class="controls"><input type="text" id="busca_user" name="busca_user" placeholder="Palavras-chave da busca" class="input-xlarge"></div>
 				</div>
-				<div class="control-group">
-					<label class="control-label" for="opcao_ord_user">Ordenar por: </label>
-					<div class="controls">
-						<select name="opcao_ord_user">
-							<option value="">--Selecionar--</option>
-						  	<option value="nome">Nome</option>
-						  	<option value="ranking">Ranking</option>
-						  	<option value="projconc">Projetos Concluídos</option>
-						</select>
-					</div>
-				</div>
+				
 				<div class="control-group"><div class="controls">
 					<button type="submit" class="btn btn-primary" nome="busca" ng-click="mostrarPerfil()">Pesquisar!</button>
 				</div>
@@ -128,15 +113,75 @@
 						<td>{{perfil.especialidade}}</td>
 						<td>{{cperfil.projConcluido}} </td>
 						<td>{{prof.createdOn}}</td>
-						<td><a href="perfil.html"><button type="button" class="btn btn-primary">Visualizar!</button></a></td>
+						 <td><button type="button" class="btn btn-primary" ng-click="atualizarView($index)">Visualizar!</button></td> 
 					</tr>
 					</tbody>
 				</table>
-				
+				{{perfilList}}
 			</div>
 		</div>
 	</div>
-	 	 
+	<hr>
+	 	 <div class="container">
+		<div class="row">
+	 		<div class="span12">
+	 			<div id="legend">
+					<h2><b>Perfil Profissional</b></h2><br/>
+				</div>
+				<table class="table" >
+				  	<tr>
+				   		<th rowspan="3" width=200px height=150px><img src="./img/img-thing.jpg"></th>
+				    	<th width=200px>Nome</th>
+				    	<td>{{listado.nomeperfil}}</td>
+				  	</tr>
+				  	<tr >
+					    <th width=200px>Ranking</th>
+					    <td>listado.avaliacao</td>
+					 </tr>
+					 <tr>
+				    	<th width=200px>Projetos Concluídos</th>
+				    	<td>listado.projconcluidos</td>
+				 	 </tr>
+				  	<tr>
+				    	<th colspan="3">Especialidade</t>
+				    	
+				  	</tr>
+				  	<tr>
+				    	<td colspan="3">{{listado.especialidade}}</td>
+				  	</tr>
+				  	<tr>
+				   		<th colspan="3">Resumo Profissional</th>
+				  	</tr>
+				  	<tr>
+				    	<td colspan="3">{{listado.resumoProfissional}}</td>
+				 	</tr>
+				  	<tr>
+				    	<th colspan="3">Perfil</th>
+				  	</tr>
+				  	<tr>
+				    	<td colspan="3">perfil.perfilr</td>
+				  	</tr>
+				  	<tr>
+				    	<th colspan="3">Habilidades</th>
+				  	</tr>
+				  	<tr>
+				    	<td colspan="3">{{listado.habilidades}}</td>
+				  	</tr>
+				  	<tr>
+				    	<th colspan="3">Áreas de interesse</th>
+				  	</tr>
+				  	<tr>
+				    	<td colspan="3">{{listado.areaInteresse}}</td>
+				  	</tr>
+				  	<tr>
+				  		<td><a href="busca_perfil.html"><button type="button" class="btn btn-primary">Voltar para busca de perfil</button></a></td>
+				  		<td> </td>
+						<td> </td>
+				  	</tr>
+				</table>
+			</div>
+		</div>	
+	</div>
 	<footer>
 		<div class="container">
 			<div class="row">

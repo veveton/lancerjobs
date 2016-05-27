@@ -1,5 +1,5 @@
 angular.module("angularApp").controller("perfilController",function($scope,$http){
-		$scope.iduser="574864de108dd65811c4f7a0";
+		$scope.iduser="57473162005c08fc0901ee4d";
 		$scope.setperfil="";
 		$scope._id="";
 		$scope.userList=[];
@@ -14,7 +14,7 @@ angular.module("angularApp").controller("perfilController",function($scope,$http
 		$scope.resumoProfissional="";
 		$scope.habilidades="";
 		$scope.areaInteresse="";
-
+		$scope.listado = [];
 	};
 	
 	
@@ -30,6 +30,12 @@ angular.module("angularApp").controller("perfilController",function($scope,$http
 		});
 				
 	};
+	
+	$scope.atualizarView = function(xx){
+		$scope.listado = $scope.perfilList[xx];
+				
+	};
+	
 	
 	$scope.mostrarPerfil = function(){
 		$http({
